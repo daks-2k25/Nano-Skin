@@ -44,16 +44,16 @@ export function Header() {
         >
           <a
             href="#top"
-            className="flex items-center gap-2.5 font-display text-[19px] tracking-tight text-bone-50 transition-colors duration-500"
+            className="flex items-center gap-2.5 font-display text-[39px] tracking-tight text-bone-50 transition-colors duration-500"
           >
             <Image
               src={officialImages.logo.src}
               alt={officialImages.logo.alt}
               width={18}
               height={24}
-              className="h-6 w-auto"
+              className=" w-auto"
             />
-            NanoSkin<span className="font-display-italic">Bio</span>
+            NanoSkinBio<span className="font-display-italic"></span>
           </a>
 
           <nav className="hidden items-center gap-10 font-sans text-[12.5px] uppercase tracking-widest2 text-bone-50/80 transition-colors duration-500 md:flex">

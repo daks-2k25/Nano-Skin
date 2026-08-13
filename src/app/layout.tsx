@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter, IBM_Plex_Mono } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -17,13 +17,6 @@ const inter = Inter({
   display: "swap",
 });
 
-const plexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-  weight: ["400", "500"],
-  display: "swap",
-});
-
 export const metadata: Metadata = {
   title: "NanoSkinBio — Biomimetic Skin Technology",
   description:
@@ -38,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
-        className={`${fraunces.variable} ${inter.variable} ${plexMono.variable} bg-azure-950 font-sans text-ink-900 antialiased`}
+        className={`${fraunces.variable} ${inter.variable} bg-azure-950 font-sans text-ink-900 antialiased`}
       >
         {children}
       </body>
