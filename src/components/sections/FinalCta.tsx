@@ -1,6 +1,4 @@
-import Image from "next/image";
 import { finalCta } from "@/lib/content";
-import { images } from "@/lib/images";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
@@ -27,19 +25,7 @@ export function FinalCta() {
       />
 
       <Container className="relative">
-        <Reveal>
-          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[24px] border border-bone-50/15 sm:aspect-[16/9] md:aspect-[21/9]">
-            <Image
-              src={images.finalCta.src}
-              alt={images.finalCta.alt}
-              fill
-              className="object-cover object-[50%_18%]"
-              sizes="100vw"
-            />
-          </div>
-        </Reveal>
-
-        <div className="mx-auto max-w-2xl pt-16 text-center md:pt-20">
+        <div className="mx-auto max-w-2xl text-center">
           <Reveal>
             <span className="mx-auto mb-7 block h-px w-10 bg-azure-300" />
             <h2 className="font-display text-[10vw] font-light leading-[1.05] tracking-tightest text-bone-50 sm:text-[7vw] md:text-[3.6vw]">

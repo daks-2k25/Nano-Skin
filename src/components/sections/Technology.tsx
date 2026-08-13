@@ -35,7 +35,7 @@ function SystemPanel({
       </span>
 
       <div className="relative mx-auto w-full max-w-shell">
-        <div className="relative grid grid-cols-1 items-center gap-10 rounded-[32px] border border-bone-50/12 bg-bone-50/[0.03] p-8 backdrop-blur-[2px] md:grid-cols-12 md:gap-8 md:p-12 lg:p-14">
+        <div className="relative grid grid-cols-1 items-center gap-10 md:grid-cols-12 md:gap-8">
           <div className="md:col-span-6">
             <span className="font-display text-[15px] italic text-azure-300">{item.index}</span>
             <h3 className="mt-5 font-display text-[7vw] font-light leading-[0.98] tracking-tightest sm:text-[4vw] md:text-[3vw]">
@@ -85,12 +85,12 @@ export function Technology() {
   return (
     <section
       id="tecnologia"
-      className="relative bg-gradient-to-b from-azure-900 via-azure-800 to-azure-950 text-bone-50"
+      className="relative bg-[#0c2869] text-bone-50"
     >
       <div className="relative overflow-hidden pt-32 md:pt-40">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_65%_55%_at_50%_100%,rgba(114,155,240,0.28),transparent)]" />
+        <div className="pointer-events-none absolute inset-0" />
         <GridTexture color="#6f9bea" opacity={0.05} size={68} fade="edges" />
-        <GlowOrb className="-right-32 top-1/4" color="rgba(169,194,247,0.14)" size={420} duration={30} />
+        <GlowOrb className="-right-32 top-1/4" color="#a9c2f724" size={420} duration={30} />
         <HairlineCross className="left-[6%] top-[14%] hidden lg:block" opacity={0.25} />
 
         <Container className="relative pb-20 md:pb-28">
@@ -107,7 +107,7 @@ export function Technology() {
             </div>
             <div className="md:col-span-6 md:col-start-7">
               <Reveal delay={0.15}>
-                <p className="mt-2 text-[15px] font-light leading-relaxed text-bone-50/65 md:mt-4">
+                <p className="mt-2 text-[18.5px] font-light leading-relaxed text-bone-50/65 md:mt-4">
                   {technology.intro}
                 </p>
               </Reveal>
@@ -118,7 +118,7 @@ export function Technology() {
 
       {/* Desktop — scroll vertical, conteúdo desloca horizontalmente (pinned) */}
       <div ref={targetRef} className="relative hidden md:block" style={{ height: `${items.length * 100}vh` }}>
-        <div className="sticky top-0 h-screen w-full overflow-hidden border-t border-bone-50/10">
+        <div className="sticky top-0 h-screen w-full overflow-hidden">
           <motion.div style={{ x }} className="flex h-full">
             {items.map((item, i) => (
               <SystemPanel key={item.index} item={item} visual={visuals[i]} />
@@ -144,31 +144,29 @@ export function Technology() {
         {items.map((item, i) => (
           <Reveal key={item.index} delay={0.05 * i}>
             <Container className="py-8">
-              <div className="rounded-[28px] border border-bone-50/12 bg-bone-50/[0.03] p-6">
-                <div className="flex items-start gap-6">
-                  <span className="font-display text-[15px] italic text-azure-300">{item.index}</span>
-                  <div>
-                    <h3 className="font-display text-[7vw] font-light leading-none tracking-tightest sm:text-[4vw]">
-                      {item.name}
-                    </h3>
-                    <p className="mt-3 text-[12px] uppercase tracking-widest2 text-azure-300">
-                      {item.subtitle}
-                    </p>
-                  </div>
+              <div className="flex items-start gap-6">
+                <span className="font-display text-[15px] italic text-azure-300">{item.index}</span>
+                <div>
+                  <h3 className="font-display text-[7vw] font-light leading-none tracking-tightest sm:text-[4vw]">
+                    {item.name}
+                  </h3>
+                  <p className="mt-3 text-[12px] uppercase tracking-widest2 text-azure-300">
+                    {item.subtitle}
+                  </p>
                 </div>
-                <div className="relative mt-6 aspect-[4/5] w-full overflow-hidden rounded-[20px]">
-                  <Image
-                    src={visuals[i].src}
-                    alt={visuals[i].alt}
-                    fill
-                    className="img-editorial object-cover"
-                    sizes="90vw"
-                  />
-                </div>
-                <p className="mt-6 max-w-md text-[15px] font-light leading-relaxed text-bone-50/60">
-                  {item.description}
-                </p>
               </div>
+              <div className="relative mt-6 aspect-[4/5] w-full overflow-hidden rounded-[20px]">
+                <Image
+                  src={visuals[i].src}
+                  alt={visuals[i].alt}
+                  fill
+                  className="img-editorial object-cover"
+                  sizes="90vw"
+                />
+              </div>
+              <p className="mt-6 max-w-md text-[15px] font-light leading-relaxed text-bone-50/60">
+                {item.description}
+              </p>
             </Container>
           </Reveal>
         ))}

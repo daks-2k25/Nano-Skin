@@ -9,7 +9,7 @@ export function Footer() {
       <Container>
         <div className="grid grid-cols-1 gap-14 border-b border-bone-50/12 pb-16 md:grid-cols-12">
           <div className="md:col-span-5">
-            <a href="#top" className="flex items-center gap-3 font-display text-[26px] tracking-tight text-bone-50">
+            <a href="#top" className="flex items-center gap-3 font-logo text-[26px] tracking-tight text-bone-50">
               <Image
                 src={officialImages.logo.src}
                 alt={officialImages.logo.alt}
@@ -17,7 +17,7 @@ export function Footer() {
                 height={30}
                 className="h-8 w-auto"
               />
-              NanoSkin<span className="font-display-italic">Bio</span>
+              NanoSkinBio
             </a>
             <span className="mt-4 block h-px w-10 bg-azure-400" />
             <p className="mt-4 max-w-xs font-mono text-[11px] uppercase tracking-widest2 text-bone-50/50">

@@ -21,7 +21,7 @@ export function Button({
 
   const styles = {
     primary:
-      "rounded-full bg-[#e30c13] px-8 py-4 text-[14px] font-medium tracking-[0.01em] text-bone-50 shadow-[0_16px_34px_-12px_rgba(227,12,19,0.55)] hover:bg-[#c70a11] hover:shadow-[0_20px_42px_-10px_rgba(227,12,19,0.65)] active:scale-[0.98] md:px-9 md:py-[18px]",
+      "rounded-full bg-gradient-to-br from-[#ed2d32] via-[#e30c13] to-[#d4090f] px-8 py-4 text-[14px] font-medium tracking-[0.01em] text-bone-50 shadow-[0_16px_34px_-12px_rgba(227,12,19,0.55)] hover:from-[#ef5b5f] hover:to-[#c70a11] hover:shadow-[0_20px_42px_-10px_rgba(227,12,19,0.65)] active:scale-[0.98] md:px-9 md:py-[18px]",
     secondary:
       "rounded-full px-8 py-4 text-[13px] uppercase tracking-[0.18em] " +
       (tone === "dark"

@@ -49,6 +49,7 @@ const config: Config = {
         display: ["var(--font-display)"],
         sans: ["var(--font-sans)"],
         mono: ["var(--font-sans)"],
+        logo: ["Cordia New", "Georgia", "serif"],
       },
       letterSpacing: {
         tightest: "-0.045em",

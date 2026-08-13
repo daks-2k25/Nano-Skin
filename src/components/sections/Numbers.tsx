@@ -1,11 +1,8 @@
-import { Atom, Droplet, Sparkles, CalendarClock, TrendingUp } from "lucide-react";
 import { numbers } from "@/lib/content";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Reveal } from "@/components/ui/Reveal";
 import { GridTexture, HairlineCross, ArcLine } from "@/components/ui/backdrop";
-
-const icons = [Atom, Droplet, Sparkles, CalendarClock, TrendingUp];
 
 export function Numbers() {
   return (
@@ -33,35 +30,28 @@ export function Numbers() {
           </div>
         </div>
 
-        {/* Grade de cartões técnicos — número, ícone e leitura, no mesmo peso visual */}
+        {/* Grade de cartões técnicos — número e leitura, no mesmo peso visual */}
         <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 md:mt-20 lg:grid-cols-3">
-          {numbers.stats.map((stat, i) => {
-            const Icon = icons[i % icons.length];
-            return (
-              <Reveal key={stat.label} delay={0.06 * i}>
-                <div className="group relative h-full overflow-hidden rounded-[22px] border border-azure-300/15 bg-gradient-to-b from-bone-50/[0.05] to-transparent p-8 transition-colors duration-500 hover:border-azure-300/30">
-                  <span
-                    aria-hidden
-                    className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-azure-300/70 to-transparent"
-                  />
-                  <p className="font-display text-[15vw] font-light leading-none tracking-tightest text-transparent [-webkit-text-stroke:0.5px_rgba(169,194,247,0.5)] bg-gradient-to-b from-bone-50 to-azure-300 bg-clip-text sm:text-[9vw] md:text-[4.4vw] lg:text-[3vw]">
-                    {stat.value}
-                    <span className="ml-1.5 text-[0.4em] italic tracking-normal text-azure-300 [-webkit-text-stroke:0px]">
-                      {stat.unit}
-                    </span>
-                  </p>
-
-                  <span className="mt-7 flex h-11 w-11 items-center justify-center rounded-[12px] bg-azure-600/25 text-azure-300">
-                    <Icon className="h-[18px] w-[18px]" strokeWidth={1.4} />
+          {numbers.stats.map((stat, i) => (
+            <Reveal key={stat.label} delay={0.06 * i}>
+              <div className="group relative h-full overflow-hidden rounded-[22px] border border-azure-300/15 bg-gradient-to-b from-bone-50/[0.05] to-transparent p-8 transition-colors duration-500 hover:border-azure-300/30">
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-azure-300/70 to-transparent"
+                />
+                <p className="font-sans text-[15vw] font-light leading-none tracking-tightest text-transparent [-webkit-text-stroke:0.5px_rgba(169,194,247,0.5)] bg-gradient-to-b from-bone-50 to-azure-300 bg-clip-text sm:text-[9vw] md:text-[4.4vw] lg:text-[3vw]">
+                  {stat.value}
+                  <span className="ml-1.5 text-[0.4em] tracking-normal text-azure-300 [-webkit-text-stroke:0px]">
+                    {stat.unit}
                   </span>
+                </p>
 
-                  <p className="mt-6 max-w-[26ch] text-[14.5px] font-light leading-relaxed text-bone-50/70">
-                    {stat.label}
-                  </p>
-                </div>
-              </Reveal>
-            );
-          })}
+                <p className="mt-7 max-w-[26ch] text-[14.5px] font-light leading-relaxed text-bone-50/70">
+                  {stat.label}
+                </p>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </Container>
     </section>
