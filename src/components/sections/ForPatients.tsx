@@ -38,18 +38,20 @@ export function ForPatients() {
         </div>
 
         <Reveal delay={0.1}>
-          <Parallax
-            strength={22}
-            className="relative aspect-[16/10] w-full overflow-hidden border-t-2 border-azure-400 md:aspect-[21/9]"
-          >
-            <Image
-              src={images.patients.src}
-              alt={images.patients.alt}
-              fill
-              className="object-cover object-[38%_20%]"
-              sizes="100vw"
-            />
-          </Parallax>
+          <div className="rounded-[28px] bg-azure-700 p-3 md:p-4">
+            <Parallax
+              strength={22}
+              className="relative aspect-[16/10] w-full overflow-hidden rounded-[20px] md:aspect-[21/9]"
+            >
+              <Image
+                src={images.patients.src}
+                alt={images.patients.alt}
+                fill
+                className="object-cover object-[38%_20%]"
+                sizes="100vw"
+              />
+            </Parallax>
+          </div>
         </Reveal>
       </Container>
     </section>

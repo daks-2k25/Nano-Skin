@@ -28,7 +28,7 @@ export function FinalCta() {
 
       <Container className="relative">
         <Reveal>
-          <div className="relative aspect-[4/5] w-full overflow-hidden border border-bone-50/15 sm:aspect-[16/9] md:aspect-[21/9]">
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[24px] border border-bone-50/15 sm:aspect-[16/9] md:aspect-[21/9]">
             <Image
               src={images.finalCta.src}
               alt={images.finalCta.alt}

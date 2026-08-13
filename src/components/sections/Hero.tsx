@@ -52,7 +52,9 @@ export function Hero() {
                   className="block overflow-hidden"
                 >
                   {i === hero.headline.length - 1 ? (
-                    <span className="font-display-italic">{line}</span>
+                    <span className="font-display-italic bg-gradient-to-r from-bone-50 via-azure-300 to-azure-500 bg-clip-text text-transparent">
+                      {line}
+                    </span>
                   ) : (
                     line
                   )}
@@ -105,7 +107,7 @@ export function Hero() {
               initial={{ opacity: 0, scale: 1.04 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.6, delay: 0.3, ease: EASE }}
-              className="relative mx-auto aspect-[4/5] w-full max-w-[440px] lg:max-w-none"
+              className="relative mx-auto aspect-[4/5] w-full max-w-[440px] overflow-hidden rounded-[24px] lg:max-w-none"
             >
               <Image
                 src={officialImages.productGlow.src}

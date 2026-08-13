@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { protocols } from "@/lib/content";
-import { images, officialImages } from "@/lib/images";
+import { officialImages } from "@/lib/images";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
-import { GlowOrb, GridTexture, CornerFrame } from "@/components/ui/backdrop";
+import { GlowOrb, GridTexture } from "@/components/ui/backdrop";
 
 export function Protocols() {
   const item = protocols.item;
@@ -44,7 +44,7 @@ export function Protocols() {
         <div className="grid grid-cols-1 gap-14 md:grid-cols-12 md:gap-8">
           <div className="relative md:col-span-6 md:col-start-8 md:order-2">
             <Reveal delay={0.1}>
-              <div className="relative aspect-[4/5] w-full overflow-hidden bg-azure-950">
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[24px] bg-azure-950 ring-1 ring-bone-50/10">
                 <Image
                   src={officialImages.productBox.src}
                   alt={officialImages.productBox.alt}
@@ -52,21 +52,6 @@ export function Protocols() {
                   className="object-cover"
                   sizes="(min-width: 768px) 42vw, 90vw"
                 />
-                <CornerFrame className="-inset-2" color="border-azure-300/50" size={20} />
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.25}>
-              <div className="absolute -bottom-10 -left-6 hidden w-[44%] overflow-hidden border-8 border-bone-50 shadow-[0_30px_60px_-15px_rgba(10,31,92,0.22)] sm:block md:-left-12">
-                <div className="relative aspect-[4/5]">
-                  <Image
-                    src={images.protocols.secondary.src}
-                    alt={images.protocols.secondary.alt}
-                    fill
-                    className="object-cover"
-                    sizes="26vw"
-                  />
-                </div>
               </div>
             </Reveal>
           </div>

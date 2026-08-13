@@ -26,10 +26,10 @@ export function About() {
           <div className="relative md:col-span-6">
             <span
               aria-hidden
-              className="pointer-events-none absolute -left-6 -top-6 hidden h-full w-full bg-bone-50 md:block"
+              className="pointer-events-none absolute -left-6 -top-6 hidden h-full w-full rounded-[20px] bg-bone-50 md:block"
             />
             <Reveal>
-              <Parallax strength={28} className="relative aspect-[4/5] w-full overflow-hidden">
+              <Parallax strength={28} className="relative aspect-[4/5] w-full overflow-hidden rounded-[20px]">
                 <Image
                   src={images.about.primary.src}
                   alt={images.about.primary.alt}
@@ -41,7 +41,7 @@ export function About() {
             </Reveal>
 
             <Reveal delay={0.2}>
-              <div className="absolute -bottom-10 -right-6 hidden w-[42%] overflow-hidden border-8 border-bone-50 bg-azure-950 shadow-[0_30px_60px_-15px_rgba(10,31,92,0.22)] sm:block md:-right-10 md:w-[46%]">
+              <div className="absolute -bottom-10 -right-6 hidden w-[42%] overflow-hidden rounded-[16px] border-8 border-bone-50 bg-azure-950 shadow-[0_30px_60px_-15px_rgba(10,31,92,0.22)] sm:block md:-right-10 md:w-[46%]">
                 <div className="relative aspect-[4/5]">
                   <Image
                     src={images.about.secondary.src}
@@ -49,6 +49,14 @@ export function About() {
                     fill
                     className="object-contain p-4"
                     sizes="30vw"
+                  />
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0"
+                    style={{
+                      background:
+                        "radial-gradient(ellipse 60% 60% at 50% 45%, transparent 30%, rgba(5,15,48,0.65) 100%)",
+                    }}
                   />
                 </div>
               </div>

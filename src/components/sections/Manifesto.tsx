@@ -4,15 +4,12 @@ import { images } from "@/lib/images";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Reveal } from "@/components/ui/Reveal";
+import { Parallax } from "@/components/ui/Parallax";
 import { GlowOrb, ArcLine } from "@/components/ui/backdrop";
 
-const campaignImages = {
-  ative: images.manifesto.ative,
-  regenere: images.manifesto.regenere,
-  evolua: images.manifesto.evolua,
-} as const;
-
 export function Manifesto() {
+  const featured = manifesto.progression[1];
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-azure-950 via-azure-900 to-azure-950 py-32 md:py-40">
       <GlowOrb
@@ -42,34 +39,44 @@ export function Manifesto() {
           </div>
         </div>
 
-        <div className="relative grid grid-cols-1 gap-16 md:grid-cols-3 md:gap-8">
-          <span className="pointer-events-none absolute inset-x-0 top-[38%] hidden h-px bg-bone-50/15 md:block" />
-
-          {manifesto.progression.map((stage, i) => (
-            <Reveal key={stage.word} delay={0.08 * i}>
-              <div className="relative">
-                <span className="mb-6 block font-mono text-[11px] text-azure-300">
-                  0{i + 1}
-                </span>
-                <div className="relative mx-auto aspect-[3/4] w-full max-w-[280px] overflow-hidden bg-azure-900 md:max-w-none">
-                  <Image
-                    src={campaignImages[stage.image as keyof typeof campaignImages].src}
-                    alt={campaignImages[stage.image as keyof typeof campaignImages].alt}
-                    fill
-                    className="object-cover"
-                    style={{ objectPosition: stage.focus }}
-                    sizes="(min-width: 768px) 30vw, 80vw"
-                  />
-                </div>
-                <p className="mt-6 font-display text-[9vw] font-light italic leading-none tracking-tightest text-bone-50 sm:text-[5vw] md:text-[2.6vw]">
-                  {stage.word}
-                </p>
-                <p className="mt-4 max-w-xs text-[13.5px] font-light leading-relaxed text-bone-50/65">
-                  {stage.caption}
-                </p>
-              </div>
+        {/* Uma fotografia protagonista + a progressão em leitura editorial, sem repetição de imagens */}
+        <div className="grid grid-cols-1 items-center gap-14 md:grid-cols-12 md:gap-10">
+          <div className="md:col-span-7">
+            <Reveal>
+              <Parallax
+                strength={24}
+                className="relative aspect-[4/5] w-full overflow-hidden rounded-[24px] bg-azure-900"
+              >
+                <Image
+                  src={images.manifesto.regenere.src}
+                  alt={images.manifesto.regenere.alt}
+                  fill
+                  className="object-cover"
+                  style={{ objectPosition: featured.focus }}
+                  sizes="(min-width: 768px) 56vw, 92vw"
+                  priority={false}
+                />
+              </Parallax>
             </Reveal>
-          ))}
+          </div>
+
+          <div className="md:col-span-5 md:col-start-8">
+            <ul className="flex flex-col gap-0 border-t border-bone-50/12">
+              {manifesto.progression.map((stage, i) => (
+                <Reveal key={stage.word} delay={0.08 * i}>
+                  <li className="border-b border-bone-50/12 py-8 first:pt-0">
+                    <span className="font-mono text-[11px] text-azure-300">0{i + 1}</span>
+                    <p className="mt-3 bg-gradient-to-r from-bone-50 via-azure-200 to-azure-400 bg-clip-text font-display text-[9vw] font-light italic leading-none tracking-tightest text-transparent sm:text-[5vw] md:text-[2.8vw]">
+                      {stage.word}
+                    </p>
+                    <p className="mt-4 max-w-sm text-[13.5px] font-light leading-relaxed text-bone-50/65">
+                      {stage.caption}
+                    </p>
+                  </li>
+                </Reveal>
+              ))}
+            </ul>
+          </div>
         </div>
       </Container>
     </section>
