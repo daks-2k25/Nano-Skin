@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #477eeb;
+  color: #f8f9fb;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a1f5c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2e66c9;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #477eeb;
+}
+
+.font-display-italic {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Tratamento fotográfico unificado: editorial, discreto, "film-still". */
+.img-editorial {
+  filter: grayscale(72%) contrast(1.04) brightness(1.01);
+}
+
+.img-editorial-color {
+  filter: saturate(0.86) contrast(1.02);
+}
+
+/* Normaliza o balanço de cor entre fotos clínicas de antes/depois,
+   que vêm de sessões e iluminação distintas. */
+.img-clinical {
+  filter: saturate(0.5) contrast(1.05) brightness(1.01);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
