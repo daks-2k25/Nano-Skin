@@ -6,7 +6,6 @@ import { Technology } from "@/components/sections/Technology";
 import { Results } from "@/components/sections/Results";
 import { Numbers } from "@/components/sections/Numbers";
 import { About } from "@/components/sections/About";
-import { ForPatients } from "@/components/sections/ForPatients";
 import { Protocols } from "@/components/sections/Protocols";
 import { FinalCta } from "@/components/sections/FinalCta";
 
@@ -21,7 +20,6 @@ export default function Home() {
         <Results />
         <Numbers />
         <About />
-        <ForPatients />
         <Protocols />
         <FinalCta />
       </main>

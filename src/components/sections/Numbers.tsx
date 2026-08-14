@@ -41,22 +41,14 @@ export function Numbers() {
                 />
                 <p className="font-sans text-[15vw] font-light leading-none tracking-tightest text-transparent [-webkit-text-stroke:0.5px_rgba(169,194,247,0.5)] bg-gradient-to-b from-bone-50 to-azure-300 bg-clip-text sm:text-[9vw] md:text-[4.4vw] lg:text-[3vw]">
                   {stat.value}
-                  {stat.unit !== "dias" && stat.unit !== "meses" && (
-                    <span className="ml-1.5 text-[0.4em] tracking-normal text-azure-300 [-webkit-text-stroke:0px]">
-                      {stat.unit}
-                    </span>
-                  )}
+                  <span className="ml-1.5 text-[0.4em] tracking-normal text-azure-300 [-webkit-text-stroke:0px]">
+                    {stat.unit}
+                  </span>
                 </p>
 
                 <p className="mt-7 max-w-[26ch] text-[14.5px] font-light leading-relaxed text-bone-50/70">
                   {stat.label}
                 </p>
-
-                {(stat.unit === "dias" || stat.unit === "meses") && (
-                  <span className="absolute bottom-8 left-8 text-[11px] uppercase tracking-[0.18em] text-azure-300/80">
-                    {stat.unit}
-                  </span>
-                )}
               </div>
             </Reveal>
           ))}

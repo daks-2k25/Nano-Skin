@@ -94,20 +94,20 @@ export function Technology() {
         <HairlineCross className="left-[6%] top-[14%] hidden lg:block" opacity={0.25} />
 
         <Container className="relative pb-20 md:pb-28">
-          <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-6">
+          <Reveal>
+            <Eyebrow tone="light">{technology.eyebrow}</Eyebrow>
+          </Reveal>
+          <div className="mt-8 grid grid-cols-1 gap-10 md:grid-cols-12 md:items-start md:gap-6">
             <div className="md:col-span-5">
-              <Reveal>
-                <Eyebrow tone="light">{technology.eyebrow}</Eyebrow>
-              </Reveal>
               <Reveal delay={0.1}>
-                <h2 className="mt-8 font-display text-[9vw] font-light leading-[1.02] tracking-tightest sm:text-[6vw] md:text-[3.2vw]">
+                <h2 className="font-display text-[9vw] font-light leading-[1.02] tracking-tightest sm:text-[6vw] md:text-[3.2vw]">
                   {technology.title}
                 </h2>
               </Reveal>
             </div>
             <div className="md:col-span-6 md:col-start-7">
               <Reveal delay={0.15}>
-                <p className="mt-2 text-[18.5px] font-light leading-relaxed text-bone-50/65 md:mt-4">
+                <p className="mt-2 text-[18.5px] font-light leading-relaxed text-bone-50/65">
                   {technology.intro}
                 </p>
               </Reveal>

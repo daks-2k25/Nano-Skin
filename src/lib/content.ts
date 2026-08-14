@@ -16,7 +16,7 @@ export const hero = {
   headline: ["O primeiro conceito", "de renovação", "biomimética da pele."],
   support:
     "Nano-hidroxiapatita, ácido hialurônico multi-profundidade e peptídeos bioativos, numa só plataforma biomimética.",
-  badges: ["Inovação Suíça", "Certificado UE"],
+  badges: ["Inovação Suíça", "aprovado pela anvisa"],
   ctaPrimary: "Conhecer a tecnologia",
   ctaSecondary: "Encontrar um protocolo",
 };
@@ -73,7 +73,7 @@ export const technology = {
     {
       index: "03",
       name: "Peptídeos Bioativos",
-      subtitle: "15+ sequências avançadas",
+      subtitle: "Sequências avançadas",
       description:
         "Sistema bioativo de peptídeos que fornece energia às células e potencializa a regeneração natural, com efeito antienvelhecimento.",
     },
@@ -115,6 +115,7 @@ export const about = {
     "Tecnologia não injetável e não inflamatória",
     "Peptídeos Bioativos",
     "Ácido Hialurônico Multiprofundidades",
+    "tecnologia biomimética",
   ],
 };
 
@@ -144,13 +145,13 @@ export const protocols = {
 };
 
 export const finalCta = {
-  title: "A ciência já mudou. A sua pele merece acompanhar.",
+  title: "A ciência mudou. A sua pele merece acompanhar.",
   body: "Avaliação de protocolo profissional NanoSkinBio — para clínicas e especialistas credenciados.",
   cta: "Falar com a NanoSkinBio",
 };
 
 export const footer = {
-  tagline: "Swiss Biomimetic Technology",
+  tagline: "Tecnologia suíça agora no brasil",
   location: "Zug · Suíça",
   columns: [
     {

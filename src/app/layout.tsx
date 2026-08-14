@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -17,6 +18,12 @@ const inter = Inter({
   display: "swap",
 });
 
+const cordiaNew = localFont({
+  src: "../../public/images/fonts/cordia-new-4.ttf",
+  variable: "--font-logo",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "NanoSkinBio — Biomimetic Skin Technology",
   description:
@@ -31,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
-        className={`${fraunces.variable} ${inter.variable} bg-azure-950 font-sans text-ink-900 antialiased`}
+        className={`${fraunces.variable} ${inter.variable} ${cordiaNew.variable} bg-azure-950 font-sans text-ink-900 antialiased`}
       >
         {children}
       </body>

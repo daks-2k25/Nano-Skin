@@ -10,7 +10,7 @@ type RevealProps = {
   duration?: number;
   y?: number;
   once?: boolean;
-  as?: "div" | "span";
+  as?: "div" | "span" | "li";
 };
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -33,7 +33,7 @@ export function Reveal({
     },
   };
 
-  const MotionTag = as === "span" ? motion.span : motion.div;
+  const MotionTag = as === "span" ? motion.span : as === "li" ? motion.li : motion.div;
 
   return (
     <MotionTag

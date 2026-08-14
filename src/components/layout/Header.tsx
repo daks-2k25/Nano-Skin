@@ -32,26 +32,26 @@ export function Header() {
         hidden ? "-translate-y-full" : "translate-y-0",
         scrolled
           ? "border-b border-bone-50/10 bg-azure-950/80 backdrop-blur-md"
-          : "border-b border-transparent bg-transparent"
+          : "border-b border-transparent bg-transparent",
       )}
     >
       <Container>
         <div
           className={clsx(
             "flex items-center justify-between transition-all duration-500 ease-premium",
-            scrolled ? "py-4" : "py-7"
+            scrolled ? "py-4" : "py-7",
           )}
         >
           <a
             href="#top"
-            className="flex items-center gap-2.5 font-logo text-[39px] tracking-tight text-bone-50 transition-colors duration-500"
+            className="flex items-center gap-3 font-logo text-[48px] tracking-tight text-bone-50 transition-colors duration-500"
           >
             <Image
               src={officialImages.logo.src}
               alt={officialImages.logo.alt}
-              width={18}
-              height={24}
-              className=" w-auto"
+              width={22}
+              height={30}
+              className="w-auto"
             />
             NanoSkinBio
           </a>

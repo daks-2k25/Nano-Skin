@@ -9,13 +9,16 @@ export function Footer() {
       <Container>
         <div className="grid grid-cols-1 gap-14 border-b border-bone-50/12 pb-16 md:grid-cols-12">
           <div className="md:col-span-5">
-            <a href="#top" className="flex items-center gap-3 font-logo text-[26px] tracking-tight text-bone-50">
+            <a
+              href="#top"
+              className="flex items-center gap-3 font-logo text-[56px] tracking-tight text-bone-50"
+            >
               <Image
                 src={officialImages.logo.src}
                 alt={officialImages.logo.alt}
                 width={22}
                 height={30}
-                className="h-8 w-auto"
+                className="w-auto"
               />
               NanoSkinBio
             </a>
@@ -40,7 +43,9 @@ export function Footer() {
                       <a
                         href={
                           nav.find((n) => n.label === link)?.href ??
-                          (link.startsWith("NanoSkinBio") ? "#protocolos" : "#top")
+                          (link.startsWith("NanoSkinBio")
+                            ? "#protocolos"
+                            : "#top")
                         }
                         className="text-[13.5px] font-light text-bone-50/75 transition-colors duration-300 hover:text-azure-300"
                       >
@@ -55,7 +60,10 @@ export function Footer() {
         </div>
 
         <div className="mt-8 flex flex-col gap-3 text-[11.5px] font-light text-bone-50/40 sm:flex-row sm:items-center sm:justify-between">
-          <p>&copy; {new Date().getFullYear()} NanoSkinBio. Protótipo visual — não representa o site oficial.</p>
+          <p>
+            &copy; {new Date().getFullYear()} NanoSkinBio. Protótipo visual —
+            não representa o site oficial.
+          </p>
           <p>Nano-hidroxiapatita · Ácido hialurônico · Peptídeos bioativos</p>
         </div>
       </Container>

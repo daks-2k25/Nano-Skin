@@ -138,10 +138,6 @@ export const images = {
       alt: "Aplicação de NanoSkinBio MED — estágio Evolua, fotografia oficial",
     },
   },
-  patients: {
-    src: "/images/lifestyle/patients.jpg",
-    alt: "Momento de cuidado com NanoSkinBio MED — fotografia oficial",
-  },
   protocols: {
     secondary: {
       src: "/images/lifestyle/protocols-secondary.jpg",

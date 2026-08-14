@@ -1,4 +1,5 @@
 import Image from "next/image";
+import clsx from "clsx";
 import { manifesto } from "@/lib/content";
 import { images } from "@/lib/images";
 import { Container } from "@/components/ui/Container";
@@ -6,6 +7,10 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Reveal } from "@/components/ui/Reveal";
 import { Parallax } from "@/components/ui/Parallax";
 import { GlowOrb, ArcLine } from "@/components/ui/backdrop";
+
+// Fraunces italic + leading-none deixa a caixa de recorte do gradiente (bg-clip-text)
+// mais baixa que a descendente de letras como "g"; pb reserva esse espaço só quando necessário.
+const HAS_DESCENDER = /[gjpqy]/;
 
 export function Manifesto() {
   const featured = manifesto.progression[1];
@@ -30,7 +35,7 @@ export function Manifesto() {
               <Eyebrow tone="light">{manifesto.eyebrow}</Eyebrow>
             </Reveal>
           </div>
-          <div className="md:col-span-5 md:col-start-7">
+          <div className="md:col-span-5 md:col-start-8">
             <Reveal delay={0.1}>
               <p className="text-[15px] font-light leading-relaxed text-bone-50/70">
                 {manifesto.intro}
@@ -63,16 +68,24 @@ export function Manifesto() {
           <div className="md:col-span-5 md:col-start-8">
             <ul className="flex flex-col gap-0 border-t border-bone-50/12">
               {manifesto.progression.map((stage, i) => (
-                <Reveal key={stage.word} delay={0.08 * i}>
-                  <li className="border-b border-bone-50/12 py-8 first:pt-0">
-                    <span className="font-mono text-[11px] text-azure-300">0{i + 1}</span>
-                    <p className="mt-3 bg-gradient-to-r from-bone-50 via-azure-200 to-azure-400 bg-clip-text font-display text-[9vw] font-light italic leading-none tracking-tightest text-transparent sm:text-[5vw] md:text-[2.8vw]">
-                      {stage.word}
-                    </p>
-                    <p className="mt-4 max-w-sm text-[13.5px] font-light leading-relaxed text-bone-50/65">
-                      {stage.caption}
-                    </p>
-                  </li>
+                <Reveal
+                  as="li"
+                  key={stage.word}
+                  delay={0.08 * i}
+                  className="border-b border-bone-50/12 py-8 first:pt-0"
+                >
+                  <span className="font-mono text-[11px] text-azure-300">0{i + 1}</span>
+                  <p
+                    className={clsx(
+                      "mt-3 bg-gradient-to-r from-bone-50 via-azure-200 to-azure-400 bg-clip-text font-display text-[9vw] font-light italic leading-none tracking-tightest text-transparent sm:text-[5vw] md:text-[2.8vw]",
+                      HAS_DESCENDER.test(stage.word) && "pb-[0.2em]",
+                    )}
+                  >
+                    {stage.word}
+                  </p>
+                  <p className="mt-4 max-w-sm text-[13.5px] font-light leading-relaxed text-bone-50/65">
+                    {stage.caption}
+                  </p>
                 </Reveal>
               ))}
             </ul>
