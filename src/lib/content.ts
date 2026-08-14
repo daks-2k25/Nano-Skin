@@ -13,7 +13,6 @@ export const nav = [
 ] as const;
 
 export const hero = {
-  kicker: "Swiss Biomimetic Technology",
   headline: ["O primeiro conceito", "de renovação", "biomimética da pele."],
   support:
     "Nano-hidroxiapatita, ácido hialurônico multi-profundidade e peptídeos bioativos, numa só plataforma biomimética.",
@@ -29,19 +28,22 @@ export const manifesto = {
   progression: [
     {
       word: "Ative.",
-      caption: "Ação biomimética sobre os fibroblastos, ativando a produção de colágeno e elastina.",
+      caption:
+        "Ação biomimética sobre os fibroblastos, ativando a produção de colágeno e elastina.",
       image: "ative",
       focus: "50% 22%",
     },
     {
       word: "Regenere.",
-      caption: "Inteligência na regeneração natural dos tecidos, com peptídeos de precisão.",
+      caption:
+        "Inteligência na regeneração natural dos tecidos, com peptídeos de precisão.",
       image: "regenere",
       focus: "62% 28%",
     },
     {
       word: "Evolua.",
-      caption: "Alcance o futuro com tecnologia de ponta, com segurança, rapidez e naturalidade.",
+      caption:
+        "Alcance o futuro com tecnologia de ponta, com segurança, rapidez e naturalidade.",
       image: "evolua",
       focus: "50% 20%",
     },
@@ -88,22 +90,31 @@ export const numbers = {
   eyebrow: "Evidências",
   title: "Precisão que se traduz em número.",
   stats: [
-    { value: "35", unit: "nm", label: "Escala da nano-hidroxiapatita biomimética" },
-    { value: "24", unit: "h", label: "Hidratação sustentada em multi-profundidade" },
-    { value: "15+", unit: "", label: "Peptídeos bioativos na formulação" },
-    { value: "21", unit: "d", label: "Para o resultado pleno" },
-    { value: "18", unit: "m", label: "De resultado sustentado" },
+    {
+      value: "35",
+      unit: "nm",
+      label: "Escala da nano-hidroxiapatita biomimética",
+    },
+    {
+      value: "24",
+      unit: "h",
+      label: "Hidratação sustentada em multi-profundidade",
+    },
+    { value: "21", unit: "dias", label: "Para o resultado pleno" },
+    { value: "18", unit: "meses", label: "De resultado sustentado" },
   ],
 };
 
 export const about = {
   eyebrow: "NanoSkinBio",
-  title: "Swiss Concept. Ciência, precisão e padrão de luxo.",
+  title: "Conceito Suiço. Ciência, precisão e padrão de luxo.",
   body: "Desenvolvida em Zug, na Suíça, a NanoSkinBio segue um padrão globalmente reconhecido — focado em qualidade, eficácia, segurança, rastreabilidade e prestígio regulatório.",
   points: [
     "Conceito suíço (Swiss Concept)",
     "Primeira no mundo com nano-hidroxiapatita de cálcio (CaHA)",
     "Tecnologia não injetável e não inflamatória",
+    "Peptídeos Bioativos",
+    "Ácido Hialurônico Multiprofundidades",
   ],
 };
 

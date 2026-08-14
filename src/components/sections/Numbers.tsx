@@ -31,7 +31,7 @@ export function Numbers() {
         </div>
 
         {/* Grade de cartões técnicos — número e leitura, no mesmo peso visual */}
-        <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 md:mt-20 lg:grid-cols-3">
+        <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 md:mt-20 lg:grid-cols-4">
           {numbers.stats.map((stat, i) => (
             <Reveal key={stat.label} delay={0.06 * i}>
               <div className="group relative h-full overflow-hidden rounded-[22px] border border-azure-300/15 bg-gradient-to-b from-bone-50/[0.05] to-transparent p-8 transition-colors duration-500 hover:border-azure-300/30">
@@ -41,14 +41,22 @@ export function Numbers() {
                 />
                 <p className="font-sans text-[15vw] font-light leading-none tracking-tightest text-transparent [-webkit-text-stroke:0.5px_rgba(169,194,247,0.5)] bg-gradient-to-b from-bone-50 to-azure-300 bg-clip-text sm:text-[9vw] md:text-[4.4vw] lg:text-[3vw]">
                   {stat.value}
-                  <span className="ml-1.5 text-[0.4em] tracking-normal text-azure-300 [-webkit-text-stroke:0px]">
-                    {stat.unit}
-                  </span>
+                  {stat.unit !== "dias" && stat.unit !== "meses" && (
+                    <span className="ml-1.5 text-[0.4em] tracking-normal text-azure-300 [-webkit-text-stroke:0px]">
+                      {stat.unit}
+                    </span>
+                  )}
                 </p>
 
                 <p className="mt-7 max-w-[26ch] text-[14.5px] font-light leading-relaxed text-bone-50/70">
                   {stat.label}
                 </p>
+
+                {(stat.unit === "dias" || stat.unit === "meses") && (
+                  <span className="absolute bottom-8 left-8 text-[11px] uppercase tracking-[0.18em] text-azure-300/80">
+                    {stat.unit}
+                  </span>
+                )}
               </div>
             </Reveal>
           ))}

@@ -26,8 +26,14 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-[52%] lg:block">
         <GridTexture color="#729bf0" opacity={0.05} size={72} fade="edges" />
       </div>
-      <HairlineCross className="left-[68px] top-[168px] hidden md:block" opacity={0.3} />
-      <HairlineCross className="left-[380px] top-[720px] hidden lg:block" opacity={0.22} />
+      <HairlineCross
+        className="left-[68px] top-[168px] hidden md:block"
+        opacity={0.3}
+      />
+      <HairlineCross
+        className="left-[380px] top-[720px] hidden lg:block"
+        opacity={0.22}
+      />
 
       <Container className="relative z-10">
         <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-12 lg:gap-8">
@@ -38,7 +44,6 @@ export function Hero() {
               transition={{ duration: 1, delay: 0.4, ease: EASE }}
               className="mb-7 flex items-center gap-3 font-mono text-[11px] uppercase tracking-widest2 text-bone-50/70"
             >
-              <span className="h-px w-8 bg-azure-300" />
               {hero.kicker}
             </motion.p>
 
@@ -48,7 +53,11 @@ export function Hero() {
                   key={line}
                   initial={{ opacity: 0, y: 36 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1.1, delay: 0.55 + i * 0.12, ease: EASE }}
+                  transition={{
+                    duration: 1.1,
+                    delay: 0.55 + i * 0.12,
+                    ease: EASE,
+                  }}
                   className="block overflow-hidden"
                 >
                   {i === hero.headline.length - 1 ? (
