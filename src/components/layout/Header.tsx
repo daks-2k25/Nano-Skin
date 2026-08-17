@@ -44,14 +44,14 @@ export function Header() {
         >
           <a
             href="#top"
-            className="flex items-center gap-3 font-logo text-[48px] tracking-tight text-bone-50 transition-colors duration-500"
+            className="flex items-center gap-3 font-logo text-[24px] tracking-tight text-bone-50 transition-colors duration-500 md:text-[48px]"
           >
             <Image
               src={officialImages.logo.src}
               alt={officialImages.logo.alt}
-              width={27}
-              height={37}
-              className="w-auto"
+              width={40}
+              height={40}
+              className="h-7 w-auto shrink-0 md:h-10"
             />
             NanoSkinBio
           </a>

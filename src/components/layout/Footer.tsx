@@ -16,8 +16,8 @@ export function Footer() {
               <Image
                 src={officialImages.logo.src}
                 alt={officialImages.logo.alt}
-                width={27}
-                height={37}
+                width={40}
+                height={40}
                 className="w-auto"
               />
               NanoSkinBio
