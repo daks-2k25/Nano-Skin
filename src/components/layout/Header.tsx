@@ -49,8 +49,8 @@ export function Header() {
             <Image
               src={officialImages.logo.src}
               alt={officialImages.logo.alt}
-              width={22}
-              height={30}
+              width={27}
+              height={37}
               className="w-auto"
             />
             NanoSkinBio

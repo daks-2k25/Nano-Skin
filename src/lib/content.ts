@@ -151,8 +151,7 @@ export const finalCta = {
 };
 
 export const footer = {
-  tagline: "Tecnologia suíça agora no brasil",
-  location: "Zug · Suíça",
+  tagline: ["Tecnologia suíça", "agora no Brasil"],
   columns: [
     {
       title: "Explorar",

@@ -16,18 +16,19 @@ export function Footer() {
               <Image
                 src={officialImages.logo.src}
                 alt={officialImages.logo.alt}
-                width={22}
-                height={30}
+                width={27}
+                height={37}
                 className="w-auto"
               />
               NanoSkinBio
             </a>
             <span className="mt-4 block h-px w-10 bg-azure-400" />
             <p className="mt-4 max-w-xs font-mono text-[11px] uppercase tracking-widest2 text-bone-50/50">
-              {footer.tagline}
-            </p>
-            <p className="mt-2 font-mono text-[11px] uppercase tracking-widest2 text-bone-50/50">
-              {footer.location}
+              {footer.tagline.map((line) => (
+                <span key={line} className="block">
+                  {line}
+                </span>
+              ))}
             </p>
           </div>
 
