@@ -38,15 +38,6 @@ export function Hero() {
       <Container className="relative z-10">
         <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-6">
-            <motion.p
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.4, ease: EASE }}
-              className="mb-7 flex items-center gap-3 font-mono text-[11px] uppercase tracking-widest2 text-bone-50/70"
-            >
-              {hero.kicker}
-            </motion.p>
-
             <h1 className="font-display text-[13vw] leading-[0.98] tracking-tightest text-bone-50 sm:text-[9vw] lg:text-[4.6vw]">
               {hero.headline.map((line, i) => (
                 <motion.span

@@ -88,7 +88,9 @@ export const images = {
           src: "/images/results/pair-1-after.jpg",
           alt: "Depois — região periorbital revitalizada, fotografia clínica NanoSkinBio",
         },
-       
+        label: "Ativação de Colágeno",
+        weeks: "4 semanas",
+        badge: "4sem",
       },
       {
         before: {
@@ -99,7 +101,9 @@ export const images = {
           src: "/images/results/pair-2-after.jpg",
           alt: "Depois — região periorbital revitalizada, fotografia clínica NanoSkinBio",
         },
-    
+        label: "Revitalização de Tecidos",
+        weeks: "Protocolo avançado",
+        badge: null,
       },
       {
         before: {
@@ -110,7 +114,9 @@ export const images = {
           src: "/images/results/pair-3-after.jpg",
           alt: "Depois — região periorbital revitalizada, fotografia clínica NanoSkinBio",
         },
-       
+        label: "Hidratação Multi-Profundidade",
+        weeks: "Protocolo avançado",
+        badge: null,
       },
     ],
   },
