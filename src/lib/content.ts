@@ -88,7 +88,7 @@ export const results = {
 
 export const numbers = {
   eyebrow: "Evidências",
-  title: "Precisão que se traduz em número.",
+  title: "Precisão que se traduz em números.",
   stats: [
     {
       value: "35",

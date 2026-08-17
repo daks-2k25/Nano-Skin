@@ -34,7 +34,7 @@ export function Numbers() {
         <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 md:mt-20 lg:grid-cols-4">
           {numbers.stats.map((stat, i) => (
             <Reveal key={stat.label} delay={0.06 * i}>
-              <div className="group relative h-full overflow-hidden rounded-[22px] border border-azure-300/15 bg-gradient-to-b from-bone-50/[0.05] to-transparent p-8 transition-colors duration-500 hover:border-azure-300/30">
+              <div className="group relative h-full overflow-hidden rounded-[22px] border border-azure-300/15 bg-gradient-to-b from-azure-800 via-azure-800 to-transparent p-8 transition-colors duration-500 hover:border-azure-300/30">
                 <span
                   aria-hidden
                   className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-azure-300/70 to-transparent"

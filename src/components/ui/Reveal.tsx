@@ -13,7 +13,7 @@ type RevealProps = {
   as?: "div" | "span" | "li";
 };
 
-const EASE = [0.16, 1, 0.3, 1] as const;
+export const EASE = [0.16, 1, 0.3, 1] as const;
 
 export function Reveal({
   children,
