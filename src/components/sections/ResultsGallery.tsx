@@ -10,9 +10,6 @@ import { GlowOrb } from "@/components/ui/backdrop";
 type Pair = {
   before: { src: string; alt: string };
   after: { src: string; alt: string };
-  label: string;
-  weeks: string;
-  badge: string | null;
 };
 
 function CompareFrame({ pair }: { pair: Pair }) {
@@ -93,12 +90,6 @@ function CompareFrame({ pair }: { pair: Pair }) {
         Depois
       </span>
 
-      {pair.badge && (
-        <span className="pointer-events-none absolute bottom-3 right-3 inline-flex h-8 items-center rounded-full bg-azure-600/85 px-2.5 font-mono text-[9px] uppercase tracking-widest text-bone-50 backdrop-blur-sm md:bottom-4 md:right-4">
-          {pair.badge}
-        </span>
-      )}
-
       <div
         className="pointer-events-none absolute inset-y-0 w-px bg-bone-50/90 shadow-[0_0_18px_rgba(248,249,251,0.5)]"
         style={{ left: `${percent}%` }}
@@ -121,16 +112,8 @@ export function ResultsGallery({ pairs }: { pairs: readonly Pair[] }) {
       {/* As três evidências lado a lado — paradas, controladas apenas pelo arraste do usuário */}
       <div className="relative grid grid-cols-1 gap-10 sm:grid-cols-3 sm:gap-6">
         {pairs.map((pair, i) => (
-          <Reveal key={pair.label} delay={0.08 * i}>
-            <div>
-              <CompareFrame pair={pair} />
-              <div className="mt-5 border-t border-bone-50/15 pt-4">
-                <p className="font-display text-[16px] italic text-bone-50">{pair.label}</p>
-                <p className="mt-1 font-mono text-[10.5px] uppercase tracking-widest2 text-azure-300">
-                  {pair.weeks}
-                </p>
-              </div>
-            </div>
+          <Reveal key={pair.before.src} delay={0.08 * i}>
+            <CompareFrame pair={pair} />
           </Reveal>
         ))}
       </div>
