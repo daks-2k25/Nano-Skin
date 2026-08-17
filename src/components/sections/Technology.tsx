@@ -94,7 +94,7 @@ export function Technology() {
   });
 
   return (
-    <section id="Tecnologia" className="relative bg-[#0c2869] text-bone-50">
+    <section id="tecnologia" className="relative bg-[#0c2869] text-bone-50">
       <div className="relative overflow-hidden pt-32 md:pt-40">
         <div className="pointer-events-none absolute inset-0" />
         <GridTexture color="#6f9bea" opacity={0.05} size={68} fade="edges" />
