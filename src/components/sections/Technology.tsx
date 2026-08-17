@@ -2,7 +2,12 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
-import { motion, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  useMotionValueEvent,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import { technology } from "@/lib/content";
 import { images } from "@/lib/images";
 import { Container } from "@/components/ui/Container";
@@ -37,7 +42,9 @@ function SystemPanel({
       <div className="relative mx-auto w-full max-w-shell">
         <div className="relative grid grid-cols-1 items-center gap-10 md:grid-cols-12 md:gap-8">
           <div className="md:col-span-6">
-            <span className="font-display text-[15px] italic text-azure-300">{item.index}</span>
+            <span className="font-display text-[15px] italic text-azure-300">
+              {item.index}
+            </span>
             <h3 className="mt-5 font-display text-[7vw] font-light leading-[0.98] tracking-tightest sm:text-[4vw] md:text-[3vw]">
               {item.name}
             </h3>
@@ -75,7 +82,11 @@ export function Technology() {
     target: targetRef,
     offset: ["start start", "end end"],
   });
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", `-${(items.length - 1) * 100}%`]);
+  const x = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["0%", `-${(items.length - 1) * 100}%`],
+  );
   const progressWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   useMotionValueEvent(scrollYProgress, "change", (v) => {
@@ -83,15 +94,20 @@ export function Technology() {
   });
 
   return (
-    <section
-      id="tecnologia"
-      className="relative bg-[#0c2869] text-bone-50"
-    >
+    <section id="Tecnologia" className="relative bg-[#0c2869] text-bone-50">
       <div className="relative overflow-hidden pt-32 md:pt-40">
         <div className="pointer-events-none absolute inset-0" />
         <GridTexture color="#6f9bea" opacity={0.05} size={68} fade="edges" />
-        <GlowOrb className="-right-32 top-1/4" color="#a9c2f724" size={420} duration={30} />
-        <HairlineCross className="left-[6%] top-[14%] hidden lg:block" opacity={0.25} />
+        <GlowOrb
+          className="-right-32 top-1/4"
+          color="#a9c2f724"
+          size={420}
+          duration={30}
+        />
+        <HairlineCross
+          className="left-[6%] top-[14%] hidden lg:block"
+          opacity={0.25}
+        />
 
         <Container className="relative pb-20 md:pb-28">
           <Reveal>
@@ -107,7 +123,7 @@ export function Technology() {
             </div>
             <div className="md:col-span-6 md:col-start-7">
               <Reveal delay={0.15}>
-                <p className="mt-2 text-[18.5px] font-light leading-relaxed text-bone-50/65">
+                <p className="mt-2 text-[15.5px] font-light leading-relaxed text-bone-50/65">
                   {technology.intro}
                 </p>
               </Reveal>
@@ -117,7 +133,11 @@ export function Technology() {
       </div>
 
       {/* Desktop — scroll vertical, conteúdo desloca horizontalmente (pinned) */}
-      <div ref={targetRef} className="relative hidden md:block" style={{ height: `${items.length * 100}vh` }}>
+      <div
+        ref={targetRef}
+        className="relative hidden md:block"
+        style={{ height: `${items.length * 100}vh` }}
+      >
         <div className="sticky top-0 h-screen w-full overflow-hidden">
           <motion.div style={{ x }} className="flex h-full">
             {items.map((item, i) => (
@@ -130,7 +150,10 @@ export function Technology() {
               {String(active + 1).padStart(2, "0")}
             </span>
             <span className="relative h-px w-24 overflow-hidden bg-bone-50/15">
-              <motion.span className="absolute inset-y-0 left-0 bg-azure-300" style={{ width: progressWidth }} />
+              <motion.span
+                className="absolute inset-y-0 left-0 bg-azure-300"
+                style={{ width: progressWidth }}
+              />
             </span>
             <span className="font-mono text-[11px] tabular-nums text-bone-50/30">
               {String(items.length).padStart(2, "0")}
@@ -145,7 +168,9 @@ export function Technology() {
           <Reveal key={item.index} delay={0.05 * i}>
             <Container className="py-8">
               <div className="flex items-start gap-6">
-                <span className="font-display text-[15px] italic text-azure-300">{item.index}</span>
+                <span className="font-display text-[15px] italic text-azure-300">
+                  {item.index}
+                </span>
                 <div>
                   <h3 className="font-display text-[7vw] font-light leading-none tracking-tightest sm:text-[4vw]">
                     {item.name}

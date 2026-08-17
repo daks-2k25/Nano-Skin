@@ -37,12 +37,13 @@ export function Protocols() {
               />
             </div>
             <div className="md:col-span-4 md:col-start-9">
-              <TextReveal
+              <Reveal
                 as="p"
-                text={protocols.intro}
                 delay={0.22}
                 className="text-[14.5px] font-light leading-relaxed text-bone-50/70 md:pt-2"
-              />
+              >
+                {protocols.intro}
+              </Reveal>
             </div>
           </div>
         </Container>
@@ -91,12 +92,13 @@ export function Protocols() {
                   delay={0.1}
                   className="mt-5 font-display text-[11vw] font-light leading-none tracking-tightest text-bone-50 sm:text-[7vw] md:text-[3.6vw]"
                 />
-                <TextReveal
+                <Reveal
                   as="p"
-                  text={item.description}
                   delay={0.22}
                   className="mt-6 max-w-md text-[15px] font-light leading-relaxed text-bone-50/70"
-                />
+                >
+                  {item.description}
+                </Reveal>
 
                 <motion.ul
                   className="mt-8 flex flex-col gap-0 border-t border-bone-50/12"

@@ -78,12 +78,13 @@ export function About() {
                 delay={0.1}
                 className="mt-8 font-display text-[8vw] font-light leading-[1.05] tracking-tightest text-bone-50 sm:text-[5vw] md:text-[2.6vw]"
               />
-              <TextReveal
+              <Reveal
                 as="p"
-                text={about.body}
                 delay={0.24}
                 className="mt-7 text-[15px] font-light leading-relaxed text-bone-50/70"
-              />
+              >
+                {about.body}
+              </Reveal>
 
               <motion.ul
                 className="mt-10 flex flex-col gap-0 border-t border-bone-50/12"

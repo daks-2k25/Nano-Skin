@@ -122,7 +122,7 @@ export const images = {
   },
   about: {
     primary: {
-      src: "/images/lifestyle/nano6.png",
+      src: "/images/lifestyle/about-model.png",
       alt: "NanoSkinBio — fotografia editorial da modelo",
     },
     secondary: {
