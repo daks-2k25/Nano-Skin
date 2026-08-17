@@ -44,19 +44,19 @@ export function Header() {
         >
           <a
             href="#top"
-            className="flex items-center gap-3 font-logo text-[24px] tracking-tight text-bone-50 transition-colors duration-500 md:text-[48px]"
+            className="flex items-center gap-3 font-logo text-[30px] tracking-tight text-bone-50 transition-colors duration-500 md:text-[48px]"
           >
             <Image
               src={officialImages.logo.src}
               alt={officialImages.logo.alt}
-              width={40}
-              height={40}
-              className="h-7 w-auto shrink-0 md:h-10"
+              width={56}
+              height={56}
+              className="h-11 w-auto shrink-0 md:h-14"
             />
             NanoSkinBio
           </a>
 
-          <nav className="hidden items-center gap-10 font-sans text-[12.5px] uppercase tracking-widest2 text-bone-50/80 transition-colors duration-500 md:flex">
+          <nav className="hidden items-center gap-10 font-sans text-[12.5px] uppercase tracking-widest2 text-bone-50/80 transition-colors duration-500 xl:flex">
             {nav.map((item) => (
               <a
                 key={item.href}
@@ -70,14 +70,14 @@ export function Header() {
 
           <a
             href="#protocolos"
-            className="hidden border-b border-azure-300/45 pb-1 text-[12px] uppercase tracking-widest2 text-bone-50 transition-all duration-500 hover:border-azure-300 md:inline-flex"
+            className="hidden border-b border-azure-300/45 pb-1 text-[12px] uppercase tracking-widest2 text-bone-50 transition-all duration-500 hover:border-azure-300 xl:inline-flex"
           >
             Encontrar protocolo
           </a>
 
           <a
             href="#protocolos"
-            className="inline-flex text-[12px] uppercase tracking-widest2 text-bone-50 transition-colors duration-500 md:hidden"
+            className="inline-flex text-[12px] uppercase tracking-widest2 text-bone-50 transition-colors duration-500 xl:hidden"
           >
             Menu
           </a>
