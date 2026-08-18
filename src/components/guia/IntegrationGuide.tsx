@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { guiaPratico } from "@/lib/content";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
@@ -10,6 +10,7 @@ import { GridTexture } from "@/components/ui/backdrop";
 
 export function IntegrationGuide() {
   const { integration: g } = guiaPratico;
+  const reduceMotion = useReducedMotion();
 
   return (
     <section className="relative overflow-hidden bg-[#0c2869] py-32 text-bone-50 md:py-40">
@@ -33,7 +34,11 @@ export function IntegrationGuide() {
           viewport={{ once: true, amount: 0.25 }}
           variants={{
             hidden: {},
-            visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
+            visible: {
+              transition: reduceMotion
+                ? { staggerChildren: 0, delayChildren: 0 }
+                : { staggerChildren: 0.08, delayChildren: 0.1 },
+            },
           }}
         >
           {g.combos.map((combo) => (
@@ -41,8 +46,8 @@ export function IntegrationGuide() {
               key={combo.a}
               className="border-b border-bone-50/12 py-7 sm:odd:pr-10 sm:even:pl-10"
               variants={{
-                hidden: { opacity: 0, y: 14 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } },
+                hidden: { opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : 14 },
+                visible: { opacity: 1, y: 0, transition: { duration: reduceMotion ? 0 : 0.7, ease: EASE } },
               }}
             >
               <p className="font-display text-[4.6vw] font-light leading-tight tracking-tightest text-bone-50 sm:text-[2.4vw] md:text-[1.5vw]">

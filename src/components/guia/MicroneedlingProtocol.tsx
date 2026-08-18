@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { guiaPratico } from "@/lib/content";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
@@ -14,6 +14,8 @@ function TechniqueList({
   items: readonly { label: string; description: string }[];
   delay: number;
 }) {
+  const reduceMotion = useReducedMotion();
+
   return (
     <motion.ul
       className="mt-6 flex flex-col border-t border-bone-50/12"
@@ -22,7 +24,11 @@ function TechniqueList({
       viewport={{ once: true, amount: 0.3 }}
       variants={{
         hidden: {},
-        visible: { transition: { staggerChildren: 0.08, delayChildren: delay } },
+        visible: {
+          transition: reduceMotion
+            ? { staggerChildren: 0, delayChildren: 0 }
+            : { staggerChildren: 0.08, delayChildren: delay },
+        },
       }}
     >
       {items.map((item) => (
@@ -30,12 +36,12 @@ function TechniqueList({
           key={item.label}
           className="border-b border-bone-50/12 py-5"
           variants={{
-            hidden: { opacity: 0, y: 12 },
-            visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: EASE } },
+            hidden: { opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : 12 },
+            visible: { opacity: 1, y: 0, transition: { duration: reduceMotion ? 0 : 0.65, ease: EASE } },
           }}
         >
           <p className="text-[14.5px] font-light text-bone-50">{item.label}</p>
-          <p className="mt-1.5 max-w-xs text-[12.5px] font-light leading-relaxed text-bone-50/55">
+          <p className="mt-1.5 max-w-xs text-[12.5px] font-light leading-relaxed text-bone-50/65">
             {item.description}
           </p>
         </motion.li>
@@ -46,6 +52,7 @@ function TechniqueList({
 
 export function MicroneedlingProtocol() {
   const { microneedlingProtocol: p } = guiaPratico;
+  const reduceMotion = useReducedMotion();
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-azure-900 via-azure-800 to-azure-900 py-32 md:py-40">
@@ -81,7 +88,7 @@ export function MicroneedlingProtocol() {
 
         <div className="mt-20 md:mt-24">
           <Reveal>
-            <p className="font-mono text-[11px] uppercase tracking-widest2 text-bone-50/50">
+            <p className="font-mono text-[11px] uppercase tracking-widest2 text-bone-50/65">
               Etapas da sequência
             </p>
           </Reveal>
@@ -92,7 +99,11 @@ export function MicroneedlingProtocol() {
             viewport={{ once: true, amount: 0.3 }}
             variants={{
               hidden: {},
-              visible: { transition: { staggerChildren: 0.1, delayChildren: 0.15 } },
+              visible: {
+                transition: reduceMotion
+                  ? { staggerChildren: 0, delayChildren: 0 }
+                  : { staggerChildren: 0.1, delayChildren: 0.15 },
+              },
             }}
           >
             {p.steps.map((step, i) => (
@@ -100,14 +111,14 @@ export function MicroneedlingProtocol() {
                 key={step}
                 className="flex flex-1 items-start gap-4 py-5 sm:px-8 sm:py-0 sm:first:pl-0"
                 variants={{
-                  hidden: { opacity: 0, y: 10 },
-                  visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: EASE } },
+                  hidden: { opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : 10 },
+                  visible: { opacity: 1, y: 0, transition: { duration: reduceMotion ? 0 : 0.65, ease: EASE } },
                 }}
               >
-                <span className="font-mono text-[11px] text-azure-300">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-azure-300/40 font-mono text-[11px] text-azure-300">
                   0{i + 1}
                 </span>
-                <p className="text-[13.5px] font-light leading-relaxed text-bone-50/75">
+                <p className="pt-1 text-[13.5px] font-light leading-relaxed text-bone-50/75">
                   {step}
                 </p>
               </motion.li>

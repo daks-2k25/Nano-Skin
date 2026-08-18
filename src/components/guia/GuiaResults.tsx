@@ -4,7 +4,7 @@ import { images } from "@/lib/images";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Reveal } from "@/components/ui/Reveal";
-import { GlowOrb, GridTexture } from "@/components/ui/backdrop";
+import { DrawLine, GlowOrb, GridTexture } from "@/components/ui/backdrop";
 import { ResultsGallery } from "@/components/sections/ResultsGallery";
 
 export function GuiaResults() {
@@ -36,8 +36,17 @@ export function GuiaResults() {
           <ResultsGallery pairs={images.results.pairs} />
         </Reveal>
 
+        <div className="mt-16 md:mt-20">
+          <DrawLine className="w-full max-w-3xl bg-bone-50/15" />
+          <Reveal delay={0.05}>
+            <p className="mt-8 font-mono text-[11px] uppercase tracking-widest2 text-bone-50/60">
+              Região perioral
+            </p>
+          </Reveal>
+        </div>
+
         <Reveal delay={0.1}>
-          <div className="relative mt-10 aspect-[16/9] w-full overflow-hidden rounded-[20px] bg-azure-900 ring-1 ring-inset ring-bone-50/15 sm:aspect-[2/1] md:mt-14">
+          <div className="relative mt-6 aspect-[16/9] w-full overflow-hidden rounded-[20px] bg-azure-900 ring-1 ring-inset ring-bone-50/15 sm:aspect-[2/1]">
             <Image
               src={images.guia.clinicalProfile.src}
               alt={images.guia.clinicalProfile.alt}

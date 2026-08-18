@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { guiaPratico } from "@/lib/content";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
@@ -9,6 +9,7 @@ import { TextReveal } from "@/components/ui/TextReveal";
 
 export function Aftercare() {
   const { aftercare } = guiaPratico;
+  const reduceMotion = useReducedMotion();
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-azure-950 to-azure-900 py-32 md:py-40">
@@ -30,7 +31,11 @@ export function Aftercare() {
           viewport={{ once: true, amount: 0.3 }}
           variants={{
             hidden: {},
-            visible: { transition: { staggerChildren: 0.1, delayChildren: 0.1 } },
+            visible: {
+              transition: reduceMotion
+                ? { staggerChildren: 0, delayChildren: 0 }
+                : { staggerChildren: 0.1, delayChildren: 0.1 },
+            },
           }}
         >
           {aftercare.timeline.map((step) => (
@@ -38,8 +43,8 @@ export function Aftercare() {
               key={step.time}
               className="py-8 sm:px-8 sm:py-0 sm:first:pl-0 sm:last:pr-0"
               variants={{
-                hidden: { opacity: 0, y: 14 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } },
+                hidden: { opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : 14 },
+                visible: { opacity: 1, y: 0, transition: { duration: reduceMotion ? 0 : 0.7, ease: EASE } },
               }}
             >
               <p className="font-mono text-[13px] tracking-widest2 text-azure-300">{step.time}</p>

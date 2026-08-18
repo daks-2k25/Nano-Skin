@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
 import type { ReactNode } from "react";
 
 type RevealProps = {
@@ -24,12 +24,15 @@ export function Reveal({
   once = true,
   as = "div",
 }: RevealProps) {
+  const reduceMotion = useReducedMotion();
+  // Com reduced-motion, hidden já é igual a visible — o conteúdo nunca fica
+  // preso em opacity:0 esperando um whileInView que pode nunca disparar.
   const variants: Variants = {
-    hidden: { opacity: 0, y },
+    hidden: { opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : y },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration, delay, ease: EASE },
+      transition: { duration: reduceMotion ? 0 : duration, delay: reduceMotion ? 0 : delay, ease: EASE },
     },
   };
 

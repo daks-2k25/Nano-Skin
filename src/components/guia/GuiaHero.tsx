@@ -59,6 +59,7 @@ export function GuiaHero() {
                     src={images.guia.mechanism.src}
                     alt={images.guia.mechanism.alt}
                     fill
+                    priority
                     className="object-contain"
                     sizes="(min-width: 768px) 40vw, 90vw"
                   />

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { guiaPratico } from "@/lib/content";
 import { officialImages } from "@/lib/images";
 import { Container } from "@/components/ui/Container";
@@ -15,6 +15,7 @@ const LINE_DURATION = 1.7;
 export function ClinicalSequence() {
   const { clinicalSequence } = guiaPratico;
   const steps = clinicalSequence.steps;
+  const reduceMotion = useReducedMotion();
 
   return (
     <section className="relative overflow-hidden bg-azure-950 py-32 md:py-44">
@@ -62,10 +63,10 @@ export function ClinicalSequence() {
               aria-hidden
               className="absolute left-[19px] top-3 w-px origin-top bg-gradient-to-b from-azure-300 to-azure-500 md:left-[23px]"
               style={{ bottom: "0.75rem" }}
-              initial={{ scaleY: 0 }}
+              initial={{ scaleY: reduceMotion ? 1 : 0 }}
               whileInView={{ scaleY: 1 }}
               viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: LINE_DURATION, ease: EASE }}
+              transition={{ duration: reduceMotion ? 0 : LINE_DURATION, ease: EASE }}
             />
 
             <ol className="relative flex flex-col gap-14 md:gap-16">
@@ -73,13 +74,13 @@ export function ClinicalSequence() {
                 <motion.li
                   key={step.index}
                   className="relative flex gap-6 pl-0 md:gap-8"
-                  initial={{ opacity: 0, y: 16 }}
+                  initial={{ opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.6 }}
                   transition={{
-                    duration: 0.7,
+                    duration: reduceMotion ? 0 : 0.7,
                     ease: EASE,
-                    delay: (LINE_DURATION / (steps.length - 1)) * i * 0.85,
+                    delay: reduceMotion ? 0 : (LINE_DURATION / (steps.length - 1)) * i * 0.85,
                   }}
                 >
                   <span className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-azure-300/40 bg-azure-950 font-mono text-[12px] text-azure-300 md:h-12 md:w-12">

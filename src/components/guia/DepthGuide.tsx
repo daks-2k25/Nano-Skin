@@ -7,6 +7,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { TextReveal } from "@/components/ui/TextReveal";
 import { ArcLine } from "@/components/ui/backdrop";
 import { DepthList } from "./DepthList";
+import { InteractiveDepthList } from "./InteractiveDepthList";
 
 export function DepthGuide() {
   const { facialAreas, periorbital, byRegion } = guiaPratico;
@@ -45,15 +46,14 @@ export function DepthGuide() {
           <div className="md:col-span-5">
             <Reveal delay={0.2}>
               <div className="overflow-hidden rounded-[20px] bg-bone-50 p-3 md:p-4">
-                <div className="relative aspect-[4/5] w-full max-w-[280px] overflow-hidden rounded-[12px] md:max-w-none">
-                  <Image
-                    src={images.guia.depthMap.src}
-                    alt={images.guia.depthMap.alt}
-                    fill
-                    className="object-cover"
-                    sizes="(min-width: 768px) 26vw, 70vw"
-                  />
-                </div>
+                <Image
+                  src={images.guia.depthMap.src}
+                  alt={images.guia.depthMap.alt}
+                  width={1414}
+                  height={2000}
+                  className="h-auto w-full max-w-[280px] rounded-[12px] md:max-w-none"
+                  sizes="(min-width: 768px) 38vw, 90vw"
+                />
               </div>
             </Reveal>
           </div>
@@ -94,7 +94,11 @@ export function DepthGuide() {
                 </p>
               </Reveal>
               <div className="mt-5">
-                <DepthList rows={byRegion.byArea.rows} delay={0.1} />
+                <InteractiveDepthList
+                  rows={byRegion.byArea.rows}
+                  delay={0.1}
+                  groupId="byArea"
+                />
               </div>
             </div>
             <div>
@@ -104,7 +108,11 @@ export function DepthGuide() {
                 </p>
               </Reveal>
               <div className="mt-5">
-                <DepthList rows={byRegion.bySkin.rows} delay={0.14} />
+                <InteractiveDepthList
+                  rows={byRegion.bySkin.rows}
+                  delay={0.14}
+                  groupId="bySkin"
+                />
               </div>
             </div>
           </div>

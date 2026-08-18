@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import type { ElementType } from "react";
 import { EASE } from "./Reveal";
 
@@ -54,6 +54,7 @@ export function TextReveal({
   once = true,
 }: TextRevealProps) {
   const lines = splitIntoLines(text);
+  const reduceMotion = useReducedMotion();
 
   return (
     <Component className={className}>
@@ -64,10 +65,14 @@ export function TextReveal({
         >
           <motion.span
             className="block"
-            initial={{ opacity: 0, y }}
+            initial={{ opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : y }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once, amount: 0.3 }}
-            transition={{ duration: 0.8, delay: delay + i * lineDelay, ease: EASE }}
+            transition={{
+              duration: reduceMotion ? 0 : 0.8,
+              delay: reduceMotion ? 0 : delay + i * lineDelay,
+              ease: EASE,
+            }}
           >
             {line}
           </motion.span>
