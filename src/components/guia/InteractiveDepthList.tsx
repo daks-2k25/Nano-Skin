@@ -57,7 +57,10 @@ export function InteractiveDepthList({
             onMouseLeave={() => setHovered(null)}
             onFocus={() => setHovered(i)}
             onBlur={() => setHovered(null)}
-            className="flex w-full flex-col gap-1.5 border-b border-bone-50/12 py-5 text-left sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
+            className={
+              "flex w-full flex-col gap-1.5 border-b border-bone-50/12 py-5 text-left transition-colors duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] sm:flex-row sm:items-baseline sm:justify-between sm:gap-6 " +
+              (isActive ? "bg-azure-300/[0.045]" : "bg-transparent")
+            }
             variants={{
               hidden: { opacity: 0, y: reduceMotion ? 0 : 14 },
               visible: {
@@ -67,7 +70,7 @@ export function InteractiveDepthList({
               },
             }}
           >
-            <div className="relative pl-4 transition-opacity duration-300 sm:max-w-[58%]">
+            <div className="relative pl-4 sm:max-w-[58%]">
               {isActive && (
                 <motion.span
                   layoutId={`${groupId}-indicator`}
@@ -77,7 +80,7 @@ export function InteractiveDepthList({
               )}
               <p
                 className={
-                  "text-[14.5px] transition-colors duration-300 " +
+                  "text-[14.5px] transition-colors duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] " +
                   (isActive ? "font-normal text-bone-50" : "font-light text-bone-50/55")
                 }
               >
@@ -86,8 +89,10 @@ export function InteractiveDepthList({
             </div>
             <p
               className={
-                "shrink-0 pl-4 font-mono text-[13px] tracking-widest2 transition-all duration-300 sm:pl-0 " +
-                (isActive ? "text-azure-300 opacity-100" : "text-azure-300/45 opacity-80")
+                "shrink-0 pl-4 font-mono tracking-widest2 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] sm:pl-0 " +
+                (isActive
+                  ? "text-[14.5px] font-medium text-azure-300"
+                  : "text-[13px] font-normal text-azure-300/60")
               }
             >
               {row.depth}

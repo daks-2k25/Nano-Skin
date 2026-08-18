@@ -7,6 +7,7 @@ import { Results } from "@/components/sections/Results";
 import { Numbers } from "@/components/sections/Numbers";
 import { About } from "@/components/sections/About";
 import { Protocols } from "@/components/sections/Protocols";
+import { FAQ } from "@/components/sections/FAQ";
 import { FinalCta } from "@/components/sections/FinalCta";
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
         <Numbers />
         <About />
         <Protocols />
+        <FAQ />
         <FinalCta />
       </main>
       <Footer />

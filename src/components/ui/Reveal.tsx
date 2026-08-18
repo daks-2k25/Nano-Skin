@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion, type Variants } from "framer-motion";
-import type { ReactNode } from "react";
+import { useEffect, useLayoutEffect, useState, type ReactNode } from "react";
 
 type RevealProps = {
   children: ReactNode;
@@ -15,6 +15,29 @@ type RevealProps = {
 
 export const EASE = [0.16, 1, 0.3, 1] as const;
 
+// useLayoutEffect warns during SSR ("does nothing on the server"); on the
+// server this file only ever runs during the render pass, never an effect,
+// so falling back to useEffect there is a no-op and silences that warning.
+const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
+
+/**
+ * framer-motion's useReducedMotion() reads window.matchMedia synchronously
+ * during the client's first render — which can already reflect the real OS
+ * preference — while the server (no window) always renders as if there's no
+ * preference. That mismatch between server and client-on-hydration output
+ * is what triggers React's hydration-mismatch warning.
+ *
+ * This wrapper forces the first client render to match the server (always
+ * "not reduced"), then applies the real value right after mount, before the
+ * browser paints — so hydration is consistent and there's no visible flash.
+ */
+export function useSafeReducedMotion() {
+  const reduceMotion = useReducedMotion();
+  const [mounted, setMounted] = useState(false);
+  useIsomorphicLayoutEffect(() => setMounted(true), []);
+  return mounted ? reduceMotion : false;
+}
+
 export function Reveal({
   children,
   className,
@@ -24,7 +47,7 @@ export function Reveal({
   once = true,
   as = "div",
 }: RevealProps) {
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = useSafeReducedMotion();
   // Com reduced-motion, hidden já é igual a visible — o conteúdo nunca fica
   // preso em opacity:0 esperando um whileInView que pode nunca disparar.
   const variants: Variants = {

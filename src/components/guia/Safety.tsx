@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
+import { CircleCheck, CircleX, TriangleAlert } from "lucide-react";
 import { guiaPratico } from "@/lib/content";
 import { images } from "@/lib/images";
 import { Container } from "@/components/ui/Container";
@@ -23,7 +24,7 @@ function StatusList({
 
   return (
     <motion.ul
-      className="mt-5 flex flex-col gap-0"
+      className="mt-5 flex flex-col gap-3"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.4 }}
@@ -39,7 +40,7 @@ function StatusList({
       {items.map((item) => (
         <motion.li
           key={item}
-          className="flex items-center gap-3 border-b border-bone-50/10 py-3.5 text-[14px] font-light text-bone-50/85"
+          className="flex items-start gap-3 text-[14px] font-light leading-relaxed text-bone-50/85"
           variants={{
             hidden: { opacity: reduceMotion ? 1 : 0, x: reduceMotion ? 0 : -8 },
             visible: { opacity: 1, x: 0, transition: { duration: reduceMotion ? 0 : 0.6, ease: EASE } },
@@ -48,8 +49,8 @@ function StatusList({
           <span
             className={
               tone === "ok"
-                ? "h-1.5 w-1.5 shrink-0 rounded-full bg-azure-300"
-                : "h-1.5 w-1.5 shrink-0 rounded-full bg-[#e3363c]"
+                ? "mt-2 h-1 w-1 shrink-0 rounded-full bg-azure-300"
+                : "mt-2 h-1 w-1 shrink-0 rounded-full bg-[#e3363c]"
             }
           />
           {item}
@@ -76,28 +77,36 @@ export function Safety() {
           className="mt-7 max-w-xl font-display text-[8vw] font-light leading-[1.05] tracking-tightest text-bone-50 sm:text-[5vw] md:text-[2.8vw]"
         />
 
-        <div className="mt-14 grid grid-cols-1 gap-10 sm:grid-cols-2 md:mt-16 md:gap-16">
-          <div>
-            <Reveal>
-              <p className="font-mono text-[11px] uppercase tracking-widest2 text-azure-300">
-                Aceitável
-              </p>
-            </Reveal>
-            <StatusList items={bleeding.acceptable} tone="ok" delay={0.1} />
-          </div>
-          <div>
-            <Reveal delay={0.06}>
-              <p className="font-mono text-[11px] uppercase tracking-widest2 text-[#ef767b]">
-                Não aceitável
-              </p>
-            </Reveal>
-            <StatusList items={bleeding.notAcceptable} tone="warn" delay={0.16} />
-          </div>
+        <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 md:mt-16">
+          <Reveal>
+            <div className="h-full rounded-[20px] border border-azure-300/25 bg-azure-300/[0.04] p-6 md:p-7">
+              <div className="flex items-center gap-2.5">
+                <CircleCheck className="h-[18px] w-[18px] text-azure-300" strokeWidth={1.75} />
+                <p className="font-mono text-[11px] uppercase tracking-widest2 text-azure-300">
+                  Aceitável
+                </p>
+              </div>
+              <StatusList items={bleeding.acceptable} tone="ok" delay={0.1} />
+            </div>
+          </Reveal>
+          <Reveal delay={0.06}>
+            <div className="h-full rounded-[20px] border border-[#e3363c]/30 bg-[#e3363c]/[0.05] p-6 md:p-7">
+              <div className="flex items-center gap-2.5">
+                <CircleX className="h-[18px] w-[18px] text-[#ef767b]" strokeWidth={1.75} />
+                <p className="font-mono text-[11px] uppercase tracking-widest2 text-[#ef767b]">
+                  Não aceitável
+                </p>
+              </div>
+              <StatusList items={bleeding.notAcceptable} tone="warn" delay={0.16} />
+            </div>
+          </Reveal>
         </div>
 
         <Reveal delay={0.2}>
-          <div className="mt-12 max-w-2xl border-l border-[#e3363c]/50 pl-6 md:pl-8">
+          <div className="mt-5 flex items-start gap-3.5 rounded-[20px] border border-[#c99a4b]/30 bg-[#c99a4b]/[0.06] p-6 md:p-7">
+            <TriangleAlert className="mt-0.5 h-[18px] w-[18px] shrink-0 text-[#c99a4b]" strokeWidth={1.75} />
             <p className="text-[14.5px] font-light leading-relaxed text-bone-50/80">
+              <span className="font-medium text-bone-50">Ação: </span>
               {bleeding.action}
             </p>
           </div>

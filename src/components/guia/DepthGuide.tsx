@@ -42,6 +42,23 @@ export function DepthGuide() {
         <div className="mt-10 grid grid-cols-1 gap-12 md:mt-12 md:grid-cols-12 md:gap-10">
           <div className="md:col-span-7">
             <DepthList rows={facialAreas.rows} delay={0.15} />
+
+            {/* Região periorbital — logo abaixo de "Pele espessa, fibrótica ou fotoenvelhecida" */}
+            <div className="mt-16 md:mt-20">
+              <Reveal>
+                <h3 className="font-display text-[6vw] font-light leading-tight tracking-tightest text-bone-50 sm:text-[3.6vw] md:text-[2vw]">
+                  {periorbital.title}
+                </h3>
+              </Reveal>
+              <Reveal delay={0.12}>
+                <p className="mt-5 max-w-sm text-[13.5px] font-light italic leading-relaxed text-bone-50/55">
+                  {periorbital.note}
+                </p>
+              </Reveal>
+              <div className="mt-6">
+                <DepthList rows={periorbital.rows} delay={0.1} />
+              </div>
+            </div>
           </div>
           <div className="md:col-span-5">
             <Reveal delay={0.2}>
@@ -59,29 +76,10 @@ export function DepthGuide() {
           </div>
         </div>
 
-        {/* Bloco 2 — região periorbital */}
-        <div className="mt-24 grid grid-cols-1 gap-8 md:mt-32 md:grid-cols-12 md:gap-10">
-          <div className="md:col-span-5">
-            <Reveal>
-              <h3 className="font-display text-[6vw] font-light leading-tight tracking-tightest text-bone-50 sm:text-[3.6vw] md:text-[2vw]">
-                {periorbital.title}
-              </h3>
-            </Reveal>
-            <Reveal delay={0.12}>
-              <p className="mt-5 max-w-sm text-[13.5px] font-light italic leading-relaxed text-bone-50/55">
-                {periorbital.note}
-              </p>
-            </Reveal>
-          </div>
-          <div className="md:col-span-6 md:col-start-7">
-            <DepthList rows={periorbital.rows} delay={0.1} />
-          </div>
-        </div>
-
-        {/* Bloco 3 — referência rápida por área x tipo de pele */}
+        {/* Bloco 2 — referência rápida por área x tipo de pele */}
         <div className="mt-24 md:mt-32">
           <Reveal>
-            <h3 className="max-w-xl font-display text-[6vw] font-light leading-tight tracking-tightest text-bone-50 sm:text-[3.6vw] md:text-[2vw]">
+            <h3 className="max-w-xl mx-auto text-center font-display text-[6vw] font-light leading-tight tracking-tightest text-bone-50 sm:text-[3.6vw] md:text-[2vw]">
               {byRegion.title}
             </h3>
           </Reveal>

@@ -1,8 +1,8 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import type { ElementType } from "react";
-import { EASE } from "./Reveal";
+import { EASE, useSafeReducedMotion } from "./Reveal";
 
 // A máscara overflow-hidden de cada linha recorta a caixa pela line-height;
 // títulos com leading apertado (leading-none/tight) cortam a perna de letras
@@ -54,7 +54,7 @@ export function TextReveal({
   once = true,
 }: TextRevealProps) {
   const lines = splitIntoLines(text);
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = useSafeReducedMotion();
 
   return (
     <Component className={className}>

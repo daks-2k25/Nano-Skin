@@ -1,18 +1,30 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
+import { AnimatePresence, motion } from "framer-motion";
+import { Menu, X } from "lucide-react";
 import { nav } from "@/lib/content";
 import { officialImages } from "@/lib/images";
 import { resolveNavHref } from "@/lib/nav";
 import { Container } from "@/components/ui/Container";
+import { EASE, useSafeReducedMotion } from "@/components/ui/Reveal";
 
 export function Header() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const [open, setOpen] = useState(false);
+  const reduceMotion = useSafeReducedMotion();
+  const menuId = useId();
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     let lastY = window.scrollY;
@@ -27,6 +39,66 @@ export function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Fecha o menu mobile sempre que a rota mudar.
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  // Fecha o menu mobile se a viewport crescer até o breakpoint desktop (xl).
+  useEffect(() => {
+    if (!open) return;
+    const mql = window.matchMedia("(min-width: 1280px)");
+    function onChange(e: MediaQueryListEvent) {
+      if (e.matches) setOpen(false);
+    }
+    mql.addEventListener("change", onChange);
+    return () => mql.removeEventListener("change", onChange);
+  }, [open]);
+
+  // Trava o scroll do body enquanto o menu mobile está aberto.
+  useEffect(() => {
+    if (!open) return;
+    const original = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = original;
+    };
+  }, [open]);
+
+  // Esc fecha o menu e devolve o foco ao botão; Tab fica preso no painel
+  // enquanto ele está aberto (foco não escapa para o conteúdo atrás dele).
+  useEffect(() => {
+    if (!open) return;
+    const panel = panelRef.current;
+
+    const focusables = panel
+      ? Array.from(panel.querySelectorAll<HTMLElement>("a[href], button:not([disabled])"))
+      : [];
+    focusables[0]?.focus();
+
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        setOpen(false);
+        toggleRef.current?.focus();
+        return;
+      }
+      if (e.key !== "Tab" || focusables.length === 0) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open]);
 
   return (
     <header
@@ -78,14 +150,70 @@ export function Header() {
             Encontrar protocolo
           </a>
 
-          <a
-            href={resolveNavHref("#protocolos", pathname)}
-            className="inline-flex text-[12px] uppercase tracking-widest2 text-bone-50 transition-colors duration-500 xl:hidden"
+          <button
+            ref={toggleRef}
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-controls={menuId}
+            className="relative inline-flex h-9 w-9 items-center justify-center text-bone-50 transition-colors duration-300 hover:text-azure-300 focus-visible:text-azure-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-azure-300 xl:hidden"
           >
-            Menu
-          </a>
+            <span className="sr-only">{open ? "Fechar menu" : "Abrir menu"}</span>
+            <Menu
+              aria-hidden="true"
+              strokeWidth={1.5}
+              className={clsx(
+                "absolute h-5 w-5 transition-opacity duration-300 ease-premium",
+                open ? "opacity-0" : "opacity-100",
+              )}
+            />
+            <X
+              aria-hidden="true"
+              strokeWidth={1.5}
+              className={clsx(
+                "absolute h-5 w-5 transition-opacity duration-300 ease-premium",
+                open ? "opacity-100" : "opacity-0",
+              )}
+            />
+          </button>
         </div>
       </Container>
+
+      {mounted &&
+        createPortal(
+          <AnimatePresence>
+            {open && (
+              <motion.div
+                id={menuId}
+                ref={panelRef}
+                role="dialog"
+                aria-modal="true"
+                aria-label="Menu de navegação"
+                initial={{ opacity: 0, y: reduceMotion ? 0 : -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: reduceMotion ? 0 : -10 }}
+                transition={{ duration: reduceMotion ? 0 : 0.4, ease: EASE }}
+                className="fixed inset-0 z-40 overflow-y-auto border-t border-bone-50/10 bg-azure-950/98 backdrop-blur-md xl:hidden"
+              >
+                <Container>
+                  <nav aria-label="Navegação mobile" className="flex flex-col pb-10 pt-28">
+                    {nav.map((item) => (
+                      <a
+                        key={item.href}
+                        href={resolveNavHref(item.href, pathname)}
+                        onClick={() => setOpen(false)}
+                        className="border-b border-bone-50/10 py-5 font-sans text-[15px] uppercase tracking-widest2 text-bone-50/85 transition-colors duration-300 first:pt-0 hover:text-azure-300 focus-visible:text-azure-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-azure-300"
+                      >
+                        {item.label}
+                      </a>
+                    ))}
+                  </nav>
+                </Container>
+              </motion.div>
+            )}
+          </AnimatePresence>,
+          document.body,
+        )}
     </header>
   );
 }

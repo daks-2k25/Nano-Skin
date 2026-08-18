@@ -387,3 +387,70 @@ export const guiaPratico = {
     ],
   },
 };
+
+export const faq = {
+  eyebrow: "FAQ",
+  title: "Perguntas frequentes",
+  items: [
+    {
+      question: "O que é o NanoSkinBio®?",
+      answer:
+        "NanoSkinBio® é um ativador de colágeno biomimético avançado baseado em tecnologia de nano-hidroxiapatita, concebido para estimular a produção natural de colágeno respeitando a fisiologia da pele.",
+    },
+    {
+      question: "O que diferencia NanoSkinBio® dos estimuladores tradicionais?",
+      answer:
+        "Ao contrário dos estimuladores convencionais, NanoSkinBio® utiliza nano-hidroxiapatita biomimética com tamanho e morfologia controlados, permitindo ativação superior de fibroblastos e melhor perfil de segurança.",
+    },
+    {
+      question: "NanoSkinBio® é injetável ou tópico?",
+      answer:
+        "Atualmente disponível como produto tópico em suas versão profissional: NSB MED para uso médico e estético.",
+    },
+    {
+      question: "NanoSkinBio® é seguro?",
+      answer:
+        "Sim. NanoSkinBio® demonstrou excelente biocompatibilidade em estudos in vitro, sem citotoxicidade observada em concentrações clinicamente relevantes.",
+    },
+    {
+      question: "Como NanoSkinBio® ativa o colágeno?",
+      answer:
+        "Ativa fibroblastos através da sua estrutura à nanoescala, mimetizando a fase mineral natural dos tecidos humanos, promovendo neocolagênese e regeneração progressiva.",
+    },
+    {
+      question: "Pode ser usado com microagulhamento ou laser?",
+      answer:
+        "Sim. NanoSkinBio® é especialmente adequado para entrega assistida por microagulhamento e laser, facilitando interação cutânea mais profunda e uniforme.",
+    },
+    {
+      question: "NanoSkinBio® causa tempo de recuperação?",
+      answer:
+        "Uma das principais vantagens é o perfil de tempo de recuperação mínimo a zero, ideal para pacientes que procuram retorno rápido às atividades.",
+    },
+    {
+      question: "Quem pode usar NanoSkinBio®?",
+      answer:
+        "Destina-se a médicos, médicos estéticos e profissionais estéticos certificados. A linha Home Care permitirá uso por consumidores sob orientação profissional.",
+    },
+    {
+      question: "Em que indicações pode ser aplicado?",
+      answer:
+        "Adequado para rejuvenescimento cutâneo, bioativação de colágeno, melhoria da qualidade da pele, regeneração pós-procedimento e melhoria de textura e firmeza.",
+    },
+    {
+      question: "É adequado para áreas sensíveis?",
+      answer:
+        "Sim. Devido à sua dispersão homogênea e baixo risco de agregação, é particularmente adequado para áreas delicadas como perioculares e periorais.",
+    },
+    {
+      question: "NanoSkinBio® é clinicamente validado?",
+      answer:
+        "Apoiado por validação biológica in vitro, estudos pré-clínicos e clínicos em curso, e publicações científicas em preparação.",
+    },
+    {
+      question: "Onde foi desenvolvido?",
+      answer:
+        "Desenvolvido e fabricado com rigorosos padrões de qualidade na Suíça, Europa e EAU, seguindo regulamentações internacionais.",
+    },
+  ],
+};
