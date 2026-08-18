@@ -42,6 +42,10 @@ export const officialImages = {
     src: "/images/product/tube-tilted.jpg",
     alt: "NanoSkinBio MED em ângulo, fotografia de produto oficial",
   },
+  productTray: {
+    src: "/images/product/tube-tray.png",
+    alt: "NanoSkinBio MED sobre bandeja de embalagem azul-metálica — still de produto oficial",
+  },
   labScientist: {
     src: "/images/professionals/lab-scientist.png",
     alt: "Aplicação profissional em ambiente laboratorial — material oficial NanoSkinBio",
@@ -144,5 +148,23 @@ export const images = {
   finalCta: {
     src: "/images/lifestyle/final-cta.jpg",
     alt: "Encerramento cinematográfico com NanoSkinBio MED — fotografia oficial",
+  },
+  guia: {
+    depthMap: {
+      src: "/images/guia/depth-map.png",
+      alt: "Mapa de profundidade de pele por região facial, em milímetros — referência clínica NanoSkinBio",
+    },
+    mechanism: {
+      src: "/images/guia/mechanism-diagram.png",
+      alt: "Diagrama do mecanismo de microagulhamento — antes e após a aplicação, corte de epiderme e derme",
+    },
+    depthParameters: {
+      src: "/images/guia/depth-parameters.jpg",
+      alt: "Parâmetros técnicos de densidade, profundidade e zona de coagulação dos microcanais",
+    },
+    clinicalProfile: {
+      src: "/images/guia/clinical-profile.jpg",
+      alt: "Antes e depois do protocolo NanoSkinBio, região perioral — fotografia clínica",
+    },
   },
 } as const;

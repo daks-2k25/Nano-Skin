@@ -2,12 +2,15 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import { nav } from "@/lib/content";
 import { officialImages } from "@/lib/images";
+import { resolveNavHref } from "@/lib/nav";
 import { Container } from "@/components/ui/Container";
 
 export function Header() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
 
@@ -43,7 +46,7 @@ export function Header() {
           )}
         >
           <a
-            href="#top"
+            href={resolveNavHref("#top", pathname)}
             className="flex items-center gap-3 font-logo text-[30px] tracking-tight text-bone-50 transition-colors duration-500 md:text-[48px]"
           >
             <Image
@@ -60,7 +63,7 @@ export function Header() {
             {nav.map((item) => (
               <a
                 key={item.href}
-                href={item.href}
+                href={resolveNavHref(item.href, pathname)}
                 className="relative transition-colors duration-300 hover:text-azure-300"
               >
                 {item.label}
@@ -69,14 +72,14 @@ export function Header() {
           </nav>
 
           <a
-            href="#protocolos"
+            href={resolveNavHref("#protocolos", pathname)}
             className="hidden border-b border-azure-300/45 pb-1 text-[12px] uppercase tracking-widest2 text-bone-50 transition-all duration-500 hover:border-azure-300 xl:inline-flex"
           >
             Encontrar protocolo
           </a>
 
           <a
-            href="#protocolos"
+            href={resolveNavHref("#protocolos", pathname)}
             className="inline-flex text-[12px] uppercase tracking-widest2 text-bone-50 transition-colors duration-500 xl:hidden"
           >
             Menu

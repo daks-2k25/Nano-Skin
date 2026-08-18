@@ -1,16 +1,21 @@
+"use client";
+
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { footer, nav } from "@/lib/content";
 import { officialImages } from "@/lib/images";
+import { resolveNavHref } from "@/lib/nav";
 import { Container } from "@/components/ui/Container";
 
 export function Footer() {
+  const pathname = usePathname();
   return (
     <footer className="relative bg-azure-950 pb-10 pt-24 text-bone-50">
       <Container>
         <div className="grid grid-cols-1 gap-14 border-b border-bone-50/12 pb-16 md:grid-cols-12">
           <div className="md:col-span-5">
             <a
-              href="#top"
+              href={resolveNavHref("#top", pathname)}
               className="flex items-center gap-3 font-logo text-[56px] tracking-tight text-bone-50"
             >
               <Image
@@ -42,12 +47,13 @@ export function Footer() {
                   {col.links.map((link) => (
                     <li key={link}>
                       <a
-                        href={
+                        href={resolveNavHref(
                           nav.find((n) => n.label === link)?.href ??
-                          (link.startsWith("NanoSkinBio")
-                            ? "#protocolos"
-                            : "#top")
-                        }
+                            (link.startsWith("NanoSkinBio")
+                              ? "#protocolos"
+                              : "#top"),
+                          pathname,
+                        )}
                         className="text-[13.5px] font-light text-bone-50/75 transition-colors duration-300 hover:text-azure-300"
                       >
                         {link}
