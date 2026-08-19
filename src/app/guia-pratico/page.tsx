@@ -2,7 +2,12 @@ import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FinalCta } from "@/components/sections/FinalCta";
-import { GuiaTabs } from "@/components/guia/GuiaTabs";
+import { Rationale } from "@/components/guia/Rationale";
+import { Indications } from "@/components/guia/Indications";
+import { Dosage } from "@/components/guia/Dosage";
+import { Aftercare } from "@/components/guia/Aftercare";
+import { Contraindications } from "@/components/guia/Contraindications";
+import { GuiaResults } from "@/components/guia/GuiaResults";
 
 export const metadata: Metadata = {
   title: "Guia Prático — Diretrizes de Profundidade | NanoSkinBio",
@@ -15,7 +20,12 @@ export default function GuiaPraticoPage() {
     <>
       <Header />
       <main>
-        <GuiaTabs />
+        <Rationale />
+        <Indications />
+        <Dosage />
+        <Aftercare />
+        <Contraindications />
+        <GuiaResults />
         <FinalCta />
       </main>
       <Footer />

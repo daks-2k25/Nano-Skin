@@ -33,7 +33,7 @@ export function Protocols() {
                 as="h2"
                 text={protocols.title}
                 delay={0.1}
-                className="max-w-xl font-display text-[9vw] font-light leading-[1.02] tracking-tightest text-bone-50 sm:text-[6vw] md:text-[3.4vw]"
+                className="max-w-2xl font-display text-[9.5vw] font-light leading-[1.02] tracking-tightest text-bone-50 sm:text-[6.5vw] md:text-[3.8vw]"
               />
             </div>
             <div className="md:col-span-4 md:col-start-9">

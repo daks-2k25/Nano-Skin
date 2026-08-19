@@ -130,7 +130,7 @@ export const protocols = {
   eyebrow: "Protocolo",
   title: "Uma formulação. Precisão biomimética absoluta.",
   intro:
-    "NanoSkinBio MED — concebida para microagulhamento profissional e tratamentos assistidos por laser, com o mesmo padrão médico-suíço em cada aplicação.",
+    "O NanoSkinBio® foi concebido para interagir com o tecido dérmico através de um mecanismo biomimético e não inflamatório, apoiando a ativação de fibroblastos e a produção de colágeno.",
   item: {
     code: "MED",
     name: "NanoSkinBio MED",
@@ -172,192 +172,51 @@ export const footer = {
  * editorial (títulos de seção, eyebrows) foi adaptada ao tom do protótipo.
  */
 export const guiaPratico = {
-  eyebrow: "Guia Prático",
-  title: "Diretrizes de profundidade para microagulhamento.",
-  subtitle:
-    "Aplicação pós-procedimento de NanoSkinBio — orientação clínica abrangente para protocolos individualizados de microagulhamento, com base nas características da pele, área anatômica e indicação clínica.",
-  objective:
-    "Criar microcanais controlados que alcancem a interface epidérmica-dérmica, permitindo a entrega transdérmica eficaz e a interação biológica das partículas biomiméticas com os fibroblastos dérmicos.",
-
-  facialAreas: {
-    eyebrow: "Profundidade · Áreas gerais",
-    title: "Áreas faciais gerais",
-    intro: "Classificação por tipo de pele.",
-    rows: [
-      {
-        label: "Pele fina / delicada",
-        depth: "1.0 – 1.25 mm",
-        indication: "Pacientes mais jovens, baixo fotoenvelhecimento",
-      },
-      {
-        label: "Pele média",
-        depth: "1.5 mm",
-        indication: "Equilíbrio ideal entre eficácia e segurança",
-      },
-      {
-        label: "Pele espessa, fibrótica ou fotoenvelhecida",
-        depth: "2.0 – 2.5 mm",
-        indication: "Apenas quando clinicamente justificado",
-      },
-    ],
-  },
-
-  periorbital: {
-    eyebrow: "Profundidade · Região periorbital",
-    title: "Região periorbital",
-    note: "Devido à menor espessura da pele e maior sensibilidade, são essenciais técnica cuidadosa e seleção conservadora da profundidade.",
-    rows: [
-      { label: "Pálpebras superiores e inferiores", depth: "0.5 – 1.0 mm" },
-      { label: "Canto lateral / pés de galinha", depth: "1.0 – 1.5 mm" },
-    ],
-  },
-
-  byRegion: {
-    eyebrow: "Profundidade · Referência rápida",
-    title: "Profundidade recomendada por região",
-    byArea: {
-      label: "Por área anatômica",
-      rows: [
-        { label: "Periorbital / olheiras", depth: "0.25 – 0.5 mm" },
-        { label: "Bochechas e testa", depth: "0.5 – 1.0 mm" },
-        { label: "Mãos", depth: "0.5 – 0.75 mm" },
-        { label: "Pescoço e colo", depth: "0.5 – 1.0 mm" },
-        { label: "Periorbital e lábios", depth: "0.25 – 0.75 mm" },
-      ],
-    },
-    bySkin: {
-      label: "Por tipo de pele",
-      rows: [
-        { label: "Pele fina / sensível", depth: "0.25 – 0.5 mm" },
-        { label: "Pele espessa / seborreica", depth: "0.75 – 1.0 mm" },
-        { label: "Pele normal / mista", depth: "0.5 – 0.75 mm" },
-      ],
-    },
-  },
-
-  bleeding: {
-    eyebrow: "Segurança",
-    title: "Controle de sangramento.",
-    acceptable: ["Eritema leve", "Sangramento pontual ocasional"],
-    notAcceptable: ["Sangramento ativo", "Fluxo sanguíneo difuso ou contínuo"],
-    action:
-      "Reduza imediatamente a profundidade do microagulhamento. O sangramento excessivo não aumenta a eficácia e pode comprometer a segurança.",
-  },
-
-  devices: {
-    eyebrow: "Compatibilidade",
-    title: "Dispositivos de energia compatíveis",
-    items: ["Laser de Thulium", "Endolaser", "HIFU", "Laser de CO₂ fracionado"],
-  },
-
-  clinicalSequence: {
-    eyebrow: "Sequência clínica",
-    title: "A ordem que preserva a eficácia.",
-    steps: [
-      {
-        index: "01",
-        title: "Tratamentos baseados em energia",
-        description:
-          "Realizar todos os tratamentos baseados em energia primeiro — HIFU, laser, entre outros.",
-      },
-      {
-        index: "02",
-        title: "Microagulhamento",
-        description:
-          "Completar o microagulhamento, se indicado, com a técnica apropriada.",
-      },
-      {
-        index: "03",
-        title: "Aplicar NanoSkinBio",
-        description:
-          "Aplicar imediatamente após, enquanto os microcanais ainda estão abertos — tempo de ouro: até 5 minutos.",
-      },
-    ],
-    note: "Esta sequência maximiza a entrega transdérmica e melhora a resposta biológica sem comprometer a segurança.",
-  },
-
-  microneedlingProtocol: {
-    eyebrow: "Protocolo",
-    title: "Sequência do protocolo de microagulhamento",
-    prep: [
-      {
-        label: "Limpeza profunda da pele",
-        description: "Remover oleosidade, células mortas e resíduos.",
-      },
-      { label: "Antissepsia", description: "Reduzir o risco de infecção." },
-      {
-        label: "Anestesia",
-        description: "Preferencialmente máscara anestésica NSB CALM Peel, sem sérum.",
-      },
-    ],
-    application: [
-      {
-        label: "Carimbo",
-        description: "Ideal para áreas delicadas e pequenas — olheiras, perioral.",
-      },
-      {
-        label: "Arrasto / rolamento",
-        description: "Indicado para regiões maiores — bochechas, testa, pescoço.",
-      },
-      {
-        label: "Combinado",
-        description: "Carimbo em áreas sensíveis + arrasto em áreas maiores.",
-      },
-    ],
-    steps: [
-      "Microagulhamento — técnica apropriada (carimbo ou arrasto)",
-      "Aplicar NanoSkinBio uniformemente sobre a pele tratada",
-      "Segunda passagem (opcional) — repetir em áreas específicas, se indicado",
-    ],
-  },
-
-  integration: {
-    eyebrow: "Integração tecnológica",
-    title: "Combinações recomendadas",
-    combos: [
-      {
-        a: "Microagulhamento",
-        b: "NSB",
-        result: "Máxima bioestimulação + canais para entrega do NSB",
-      },
-      {
-        a: "CO₂ fracionado",
-        b: "NSB",
-        result: "Remodelação profunda + entrega transdérmica para casos complexos",
-      },
-      {
-        a: "Laser Thulium",
-        b: "NSB",
-        result: "Rejuvenescimento superficial, textura e poros",
-      },
-      {
-        a: "Eletroporação",
-        b: "NSB",
-        result: "Máxima permeação ativa, sem trauma mecânico",
-      },
-    ],
-    maleNote:
-      "Homens devem barbear-se antes do procedimento, para remover pelos faciais e permitir boa permeação do NSB.",
-    anesthesia: {
-      eyebrow: "Anestesia",
-      title: "Recomendações de Anestesia",
-      intro:
-        "A escolha do anestésico interfere diretamente na permeação do NanoSkinBio®. Séruns anestésicos podem dificultar a penetração do produto e devem ser evitados.",
-      preferred:
-        "Máscara anestésica NSB CALM peel (sem sérum), formulada para não interferir na permeação do produto.",
-      alternative: "Anestésicos líquidos ou diluídos, conforme protocolo da clínica.",
-      avoid:
-        "Séruns anestésicos — podem dificultar a penetração do NanoSkinBio® nos microcanais abertos.",
-    },
-  },
-
   rationale:
-    "O NanoSkinBio® foi concebido para interagir com o tecido dérmico através de um mecanismo biomimético e não inflamatório, apoiando a ativação de fibroblastos e a produção de colágeno. A profundidade adequada do microagulhamento garante eficácia, preservando a integridade tecidual e a segurança do paciente.",
+    "O NanoSkinBio® foi concebido para interagir com o tecido dérmico através de um mecanismo biomimético e não inflamatório, apoiando a ativação de fibroblastos e a produção de colágeno.",
 
   results: {
     eyebrow: "Resultados clínicos",
     title: "A evidência do protocolo.",
     caption: "Antes e depois do protocolo NanoSkinBio®.",
+  },
+
+  indications: {
+    eyebrow: "Indicações",
+    items: [
+      {
+        title: "Rejuvenescimento e qualidade de pele",
+        description:
+          "Aumenta a espessura da derme, devolve firmeza e melhora rugas finas, textura e luminosidade.",
+      },
+      {
+        title: "Cicatrizes (acnéicas e cirúrgicas)",
+        description:
+          "Estímulo dos fibroblastos preenche depressões de dentro para fora e homogeneíza a textura.",
+      },
+      {
+        title: "Melasma e manchas (coadjuvante)",
+        description:
+          "Fortalece a derme e a barreira e melhora a luminosidade — não é despigmentante direto.",
+      },
+    ],
+  },
+
+  dosage: {
+    eyebrow: "Aplicação",
+    title: "Quantidade de produto por região",
+    intro:
+      "Base: 10 ml = 140 gotas (14 gotas/ml). Profundidade a critério do profissional conforme a tecnologia e a espessura da pele.",
+    rows: [
+      { region: "Full face", volume: "2,5 ml", drops: "35 gotas" },
+      { region: "Olhos (pálpebras / perioral)", volume: "1,0 ml", drops: "14 gotas" },
+      { region: "Papada", volume: "1,0 ml", drops: "14 gotas" },
+      { region: "Pescoço", volume: "1,5 ml", drops: "21 gotas" },
+      { region: "Papada + pescoço", volume: "2,5 ml", drops: "35 gotas" },
+      { region: "Colo", volume: "2,5 ml", drops: "35 gotas" },
+      { region: "Mãos", volume: "1,5 ml", drops: "21 gotas" },
+      { region: "Protocolo Europa (face + papada + pescoço)", volume: "5,0 ml", drops: "70 gotas" },
+    ],
   },
 
   aftercare: {
@@ -422,11 +281,6 @@ export const faq = {
       question: "Como NanoSkinBio® ativa o colágeno?",
       answer:
         "Ativa fibroblastos através da sua estrutura à nanoescala, mimetizando a fase mineral natural dos tecidos humanos, promovendo neocolagênese e regeneração progressiva.",
-    },
-    {
-      question: "Pode ser usado com microagulhamento ou laser?",
-      answer:
-        "Sim. NanoSkinBio® é especialmente adequado para entrega assistida por microagulhamento e laser, facilitando interação cutânea mais profunda e uniforme.",
     },
     {
       question: "NanoSkinBio® causa tempo de recuperação?",
