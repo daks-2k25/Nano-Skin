@@ -4,8 +4,8 @@ import { images } from "@/lib/images";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Reveal } from "@/components/ui/Reveal";
+import { Parallax } from "@/components/ui/Parallax";
 import { DrawLine, GlowOrb, GridTexture } from "@/components/ui/backdrop";
-import { ResultsGallery } from "@/components/sections/ResultsGallery";
 
 export function GuiaResults() {
   const { results } = guiaPratico;
@@ -32,10 +32,6 @@ export function GuiaResults() {
           </Reveal>
         </div>
 
-        <Reveal delay={0.05}>
-          <ResultsGallery pairs={images.results.pairs} />
-        </Reveal>
-
         <div className="mt-16 md:mt-20">
           <DrawLine className="w-full max-w-3xl bg-bone-50/15" />
           <Reveal delay={0.05}>
@@ -47,13 +43,15 @@ export function GuiaResults() {
 
         <Reveal delay={0.1}>
           <div className="relative mt-6 aspect-[16/9] w-full overflow-hidden rounded-[20px] bg-azure-900 ring-1 ring-inset ring-bone-50/15 sm:aspect-[2/1]">
-            <Image
-              src={images.guia.clinicalProfile.src}
-              alt={images.guia.clinicalProfile.alt}
-              fill
-              className="img-clinical object-cover"
-              sizes="90vw"
-            />
+            <Parallax strength={16} className="absolute inset-0">
+              <Image
+                src={images.guia.clinicalProfile.src}
+                alt={images.guia.clinicalProfile.alt}
+                fill
+                className="img-clinical object-cover"
+                sizes="90vw"
+              />
+            </Parallax>
             <span className="pointer-events-none absolute left-3 top-3 inline-flex items-center bg-azure-950/55 px-2.5 py-1 font-mono text-[9px] uppercase tracking-widest2 text-bone-50 backdrop-blur-sm md:left-4 md:top-4">
               Antes
             </span>

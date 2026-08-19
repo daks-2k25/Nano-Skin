@@ -8,9 +8,10 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Reveal, EASE } from "@/components/ui/Reveal";
 import { TextReveal } from "@/components/ui/TextReveal";
+import { Parallax } from "@/components/ui/Parallax";
 import { GlowOrb, HairlineCross } from "@/components/ui/backdrop";
 
-const LINE_DURATION = 1.7;
+const LINE_DURATION = 1.1;
 
 export function ClinicalSequence() {
   const { clinicalSequence } = guiaPratico;
@@ -41,7 +42,10 @@ export function ClinicalSequence() {
         <div className="mt-20 grid grid-cols-1 items-center gap-14 md:mt-24 md:grid-cols-12 md:gap-10">
           <div className="md:col-span-5">
             <Reveal delay={0.1}>
-              <div className="relative mx-auto aspect-[4/5] w-full max-w-[360px] overflow-hidden rounded-[24px] bg-azure-950 ring-1 ring-bone-50/10 md:max-w-none">
+              <Parallax
+                strength={22}
+                className="relative mx-auto aspect-[4/5] w-full max-w-[360px] overflow-hidden rounded-[24px] bg-azure-950 ring-1 ring-bone-50/10 md:max-w-none"
+              >
                 <Image
                   src={officialImages.productTray.src}
                   alt={officialImages.productTray.alt}
@@ -49,7 +53,7 @@ export function ClinicalSequence() {
                   className="object-cover"
                   sizes="(min-width: 768px) 36vw, 80vw"
                 />
-              </div>
+              </Parallax>
             </Reveal>
           </div>
 
@@ -78,7 +82,7 @@ export function ClinicalSequence() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.6 }}
                   transition={{
-                    duration: reduceMotion ? 0 : 0.7,
+                    duration: reduceMotion ? 0 : 0.55,
                     ease: EASE,
                     delay: reduceMotion ? 0 : (LINE_DURATION / (steps.length - 1)) * i * 0.85,
                   }}

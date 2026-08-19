@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Reveal } from "@/components/ui/Reveal";
 import { TextReveal } from "@/components/ui/TextReveal";
+import { Parallax } from "@/components/ui/Parallax";
 import { GlowOrb, GridTexture, HairlineCross } from "@/components/ui/backdrop";
 
 export function GuiaHero() {
@@ -54,7 +55,7 @@ export function GuiaHero() {
           <div className="md:col-span-6">
             <Reveal delay={0.4}>
               <div className="overflow-hidden rounded-[20px] bg-bone-50 p-3 md:p-4">
-                <div className="relative aspect-[6/5] w-full overflow-hidden rounded-[12px]">
+                <Parallax strength={18} className="relative aspect-[6/5] w-full overflow-hidden rounded-[12px]">
                   <Image
                     src={images.guia.mechanism.src}
                     alt={images.guia.mechanism.alt}
@@ -63,7 +64,7 @@ export function GuiaHero() {
                     className="object-contain"
                     sizes="(min-width: 768px) 40vw, 90vw"
                   />
-                </div>
+                </Parallax>
               </div>
             </Reveal>
           </div>

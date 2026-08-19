@@ -67,40 +67,6 @@ export function IntegrationGuide() {
             </p>
           </div>
         </Reveal>
-
-        <div className="mt-16 md:mt-20">
-          <Reveal>
-            <p className="font-mono text-[11px] uppercase tracking-widest2 text-bone-50/50">
-              Anestesia
-            </p>
-          </Reveal>
-          <div className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-3">
-            <Reveal delay={0.06}>
-              <p className="font-mono text-[10.5px] uppercase tracking-widest2 text-azure-300">
-                Preferido
-              </p>
-              <p className="mt-2 text-[13.5px] font-light leading-relaxed text-bone-50/80">
-                {g.anesthesia.preferred}
-              </p>
-            </Reveal>
-            <Reveal delay={0.12}>
-              <p className="font-mono text-[10.5px] uppercase tracking-widest2 text-bone-50/50">
-                Alternativa
-              </p>
-              <p className="mt-2 text-[13.5px] font-light leading-relaxed text-bone-50/60">
-                {g.anesthesia.alternative}
-              </p>
-            </Reveal>
-            <Reveal delay={0.18}>
-              <p className="font-mono text-[10.5px] uppercase tracking-widest2 text-[#ef767b]">
-                Evitar
-              </p>
-              <p className="mt-2 text-[13.5px] font-light leading-relaxed text-bone-50/60">
-                {g.anesthesia.avoid}
-              </p>
-            </Reveal>
-          </div>
-        </div>
       </Container>
     </section>
   );

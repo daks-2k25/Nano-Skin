@@ -339,9 +339,15 @@ export const guiaPratico = {
     maleNote:
       "Homens devem barbear-se antes do procedimento, para remover pelos faciais e permitir boa permeação do NSB.",
     anesthesia: {
-      preferred: "Máscara anestésica NSB CALM Peel (sem sérum)",
-      alternative: "Anestésicos líquidos ou diluídos",
-      avoid: "Séruns anestésicos — podem dificultar a penetração do NSB",
+      eyebrow: "Anestesia",
+      title: "Recomendações de Anestesia",
+      intro:
+        "A escolha do anestésico interfere diretamente na permeação do NanoSkinBio®. Séruns anestésicos podem dificultar a penetração do produto e devem ser evitados.",
+      preferred:
+        "Máscara anestésica NSB CALM peel (sem sérum), formulada para não interferir na permeação do produto.",
+      alternative: "Anestésicos líquidos ou diluídos, conforme protocolo da clínica.",
+      avoid:
+        "Séruns anestésicos — podem dificultar a penetração do NanoSkinBio® nos microcanais abertos.",
     },
   },
 
