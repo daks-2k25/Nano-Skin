@@ -50,6 +50,10 @@ export const officialImages = {
     src: "/images/professionals/lab-scientist.png",
     alt: "Aplicação profissional em ambiente laboratorial — material oficial NanoSkinBio",
   },
+  applicationPortrait: {
+    src: "/images/professionals/application-portrait.jpg",
+    alt: "Profissional aplicando NanoSkinBio MED na região periorbital da paciente",
+  },
   campaign: {
     ative: {
       src: "/images/campaign/ative.png",

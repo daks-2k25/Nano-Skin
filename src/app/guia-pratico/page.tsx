@@ -22,9 +22,9 @@ export default function GuiaPraticoPage() {
       <main>
         <Rationale />
         <Indications />
+        <Contraindications />
         <Dosage />
         <Aftercare />
-        <Contraindications />
         <GuiaResults />
         <FinalCta />
       </main>
