@@ -208,14 +208,14 @@ export const guiaPratico = {
     intro:
       "Base: 10 ml = 140 gotas (14 gotas/ml). Profundidade a critério do profissional conforme a tecnologia e a espessura da pele.",
     rows: [
-      { region: "Full face", volume: "2,5 ml", drops: "35 gotas" },
-      { region: "Olhos (pálpebras / perioral)", volume: "1,0 ml", drops: "14 gotas" },
-      { region: "Papada", volume: "1,0 ml", drops: "14 gotas" },
-      { region: "Pescoço", volume: "1,5 ml", drops: "21 gotas" },
-      { region: "Papada + pescoço", volume: "2,5 ml", drops: "35 gotas" },
-      { region: "Colo", volume: "2,5 ml", drops: "35 gotas" },
-      { region: "Mãos", volume: "1,5 ml", drops: "21 gotas" },
-      { region: "Protocolo Europa (face + papada + pescoço)", volume: "5,0 ml", drops: "70 gotas" },
+      { region: "Full face", volumeMl: 2.5, drops: 35 },
+      { region: "Olhos (pálpebras / perioral)", volumeMl: 1.0, drops: 14 },
+      { region: "Papada", volumeMl: 1.0, drops: 14 },
+      { region: "Pescoço", volumeMl: 1.5, drops: 21 },
+      { region: "Papada + pescoço", volumeMl: 2.5, drops: 35 },
+      { region: "Colo", volumeMl: 2.5, drops: 35 },
+      { region: "Mãos", volumeMl: 1.5, drops: 21 },
+      { region: "Protocolo Europa (face + papada + pescoço)", volumeMl: 5.0, drops: 70 },
     ],
   },
 

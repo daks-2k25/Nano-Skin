@@ -9,6 +9,7 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Reveal, EASE } from "@/components/ui/Reveal";
 import { TextReveal } from "@/components/ui/TextReveal";
 import { Parallax } from "@/components/ui/Parallax";
+import { CountUp } from "@/components/ui/CountUp";
 import { GridTexture } from "@/components/ui/backdrop";
 
 export function Dosage() {
@@ -80,8 +81,8 @@ export function Dosage() {
             >
               <p className="text-[14.5px] font-light text-bone-50/85">{row.region}</p>
               <div className="flex items-center gap-8 font-mono text-[12.5px] tabular-nums">
-                <span className="text-azure-300">{row.volume}</span>
-                <span className="text-bone-50/45">{row.drops}</span>
+                <CountUp value={row.volumeMl} decimals={1} suffix=" ml" className="text-azure-300" />
+                <CountUp value={row.drops} suffix=" gotas" className="text-bone-50/45" />
               </div>
             </motion.div>
           ))}
