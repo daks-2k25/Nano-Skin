@@ -17,7 +17,7 @@ export function Indications() {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-azure-900 via-azure-800 to-azure-900 py-32 md:py-40">
+    <section className="relative overflow-hidden bg-gradient-to-b from-azure-900 via-azure-800 to-azure-900 pb-16 pt-32 md:pb-20 md:pt-40">
       <GlowOrb className="-left-24 bottom-0" color="rgba(114,155,240,0.16)" size={440} duration={27} />
 
       <Container className="relative">

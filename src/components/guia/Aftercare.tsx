@@ -12,7 +12,7 @@ export function Aftercare() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-azure-950 to-azure-900 py-32 md:py-40">
+    <section className="relative overflow-hidden bg-gradient-to-b from-azure-950 to-azure-900 pb-16 pt-32 md:pb-20 md:pt-40">
       <Container>
         <Reveal>
           <Eyebrow tone="light">{aftercare.eyebrow}</Eyebrow>
@@ -41,14 +41,14 @@ export function Aftercare() {
           {aftercare.timeline.map((step) => (
             <motion.div
               key={step.time}
-              className="py-8 sm:px-8 sm:py-0 sm:first:pl-0 sm:last:pr-0"
+              className="py-10 sm:px-10 sm:py-0 sm:first:pl-0 sm:last:pr-0"
               variants={{
                 hidden: { opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : 14 },
                 visible: { opacity: 1, y: 0, transition: { duration: reduceMotion ? 0 : 0.7, ease: EASE } },
               }}
             >
-              <p className="font-mono text-[13px] tracking-widest2 text-azure-300">{step.time}</p>
-              <p className="mt-3 max-w-xs text-[13.5px] font-light leading-relaxed text-bone-50/70">
+              <p className="font-mono text-[15px] tracking-widest2 text-azure-300">{step.time}</p>
+              <p className="mt-4 max-w-sm text-[15.5px] font-light leading-relaxed text-bone-50/70">
                 {step.description}
               </p>
             </motion.div>

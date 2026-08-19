@@ -7,7 +7,7 @@ export function Contraindications() {
   const { contraindications } = guiaPratico;
 
   return (
-    <section className="relative bg-azure-900 py-28 md:py-36">
+    <section className="relative bg-azure-900 pb-28 pt-16 md:pb-36 md:pt-20">
       <Container>
         <div className="max-w-none">
           <Reveal>
