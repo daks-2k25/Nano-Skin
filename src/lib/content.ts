@@ -129,8 +129,6 @@ export const patients = {
 export const protocols = {
   eyebrow: "Protocolo",
   title: "Uma formulação. Precisão biomimética absoluta.",
-  intro:
-    "O NanoSkinBio® foi concebido para interagir com o tecido dérmico através de um mecanismo biomimético e não inflamatório, apoiando a ativação de fibroblastos e a produção de colágeno.",
   item: {
     code: "MED",
     name: "NanoSkinBio MED",
@@ -156,7 +154,13 @@ export const footer = {
   columns: [
     {
       title: "Explorar",
-      links: ["Tecnologia", "Resultados", "NanoSkinBio", "Protocolos", "Guia Prático"],
+      links: [
+        "Tecnologia",
+        "Resultados",
+        "NanoSkinBio",
+        "Protocolos",
+        "Guia Prático",
+      ],
     },
     {
       title: "Conecte-se",
@@ -205,8 +209,7 @@ export const guiaPratico = {
   dosage: {
     eyebrow: "Aplicação",
     title: "Quantidade de produto por região",
-    intro:
-      "Base: 10 ml = 140 gotas (14 gotas/ml). Profundidade a critério do profissional conforme a tecnologia e a espessura da pele.",
+    intro: "Base: 10 ml = 140 gotas (14 gotas/ml).",
     rows: [
       { region: "Full face", volumeMl: 2.5, drops: 35 },
       { region: "Olhos (pálpebras / perioral)", volumeMl: 1.0, drops: 14 },
@@ -215,7 +218,11 @@ export const guiaPratico = {
       { region: "Papada + pescoço", volumeMl: 2.5, drops: 35 },
       { region: "Colo", volumeMl: 2.5, drops: 35 },
       { region: "Mãos", volumeMl: 1.5, drops: 21 },
-      { region: "Protocolo Europa (face + papada + pescoço)", volumeMl: 5.0, drops: 70 },
+      {
+        region: "Protocolo Europa (face + papada + pescoço)",
+        volumeMl: 5.0,
+        drops: 70,
+      },
     ],
   },
 
@@ -235,7 +242,8 @@ export const guiaPratico = {
       },
       {
         time: "24h",
-        description: "Evitar exposição solar intensa, sauna ou exercício intenso.",
+        description:
+          "Evitar exposição solar intensa, sauna ou exercício intenso.",
       },
     ],
   },

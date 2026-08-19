@@ -27,24 +27,13 @@ export function Protocols() {
           <Reveal>
             <Eyebrow tone="light">{protocols.eyebrow}</Eyebrow>
           </Reveal>
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-12">
-            <div className="md:col-span-7">
-              <TextReveal
-                as="h2"
-                text={protocols.title}
-                delay={0.1}
-                className="max-w-2xl font-display text-[9.5vw] font-light leading-[1.02] tracking-tightest text-bone-50 sm:text-[6.5vw] md:text-[3.8vw]"
-              />
-            </div>
-            <div className="md:col-span-4 md:col-start-9">
-              <Reveal
-                as="p"
-                delay={0.22}
-                className="text-[14.5px] font-light leading-relaxed text-bone-50/70 md:pt-2"
-              >
-                {protocols.intro}
-              </Reveal>
-            </div>
+          <div className="mt-8">
+            <TextReveal
+              as="h2"
+              text={protocols.title}
+              delay={0.1}
+              className="max-w-4xl font-display text-[11vw] font-light leading-[1.02] tracking-tightest text-bone-50 sm:text-[7.5vw] md:text-[4.6vw]"
+            />
           </div>
         </Container>
 
