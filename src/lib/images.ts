@@ -22,6 +22,10 @@ export const officialImages = {
     src: "/images/brand/logo-shield.png",
     alt: "Símbolo oficial NanoSkinBio — escudo suíço",
   },
+  awardCatalystFinalist: {
+    src: "/images/brand/amwc-2026-catalyst-finalist.png",
+    alt: "AMWC 2026 — Catalyst Finalist, categoria Most Disruptive Innovation",
+  },
   productGlow: {
     src: "/images/product/tube-glow.png",
     alt: "NanoSkinBio MED — Biomimetic Collagen Activator, 2 tubos de 5ml",

@@ -35,6 +35,14 @@ export function Footer() {
                 </span>
               ))}
             </p>
+
+            <Image
+              src={officialImages.awardCatalystFinalist.src}
+              alt={officialImages.awardCatalystFinalist.alt}
+              width={120}
+              height={120}
+              className="mt-8 h-24 w-24"
+            />
           </div>
 
           <div className="grid grid-cols-2 gap-10 md:col-span-6 md:col-start-7">

@@ -120,6 +120,18 @@ export const about = {
   ],
 };
 
+export const recognition = {
+  eyebrow: "AMWC Monaco 2026 · Catalyst Finalist",
+  title: "A inovação que o mundo reconheceu, agora no Brasil.",
+  body: "No Grimaldi Forum, em Mônaco, o AMWC Catalyst reúne as apresentações mais disputadas do congresso que concentra a elite mundial da estética. Entre as empresas selecionadas para apresentar suas inovações, a NanoSkinBio esteve na lista de finalistas na categoria de empresas mais inovadoras do mundo — um respaldo científico internacional, avaliado ao lado das maiores referências do setor.",
+  stat: { value: "Top 4", label: "Empresas mais inovadoras do mundo" },
+  badge: {
+    line1: "AMWC 2026 · Catalyst Finalist",
+    line2: "Most Disruptive Innovation",
+    congress: "24ª Aesthetic & Anti-Aging Medicine World Congress",
+  },
+};
+
 export const patients = {
   eyebrow: "Para pacientes",
   title: "Firmeza natural, sem parecer preenchida.",
