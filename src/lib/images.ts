@@ -89,31 +89,31 @@ export const images = {
     pairs: [
       {
         before: {
-          src: "/images/results/pair-1-before.jpg",
+          src: "/images/results/pair-1-before.png",
           alt: "Antes — região periorbital, fotografia clínica NanoSkinBio",
         },
         after: {
-          src: "/images/results/pair-1-after.jpg",
+          src: "/images/results/pair-1-after.png",
           alt: "Depois — região periorbital revitalizada, fotografia clínica NanoSkinBio",
         },
       },
       {
         before: {
-          src: "/images/results/pair-2-before.jpg",
+          src: "/images/results/pair-2-before.png",
           alt: "Antes — região periorbital, fotografia clínica NanoSkinBio",
         },
         after: {
-          src: "/images/results/pair-2-after.jpg",
+          src: "/images/results/pair-2-after.png",
           alt: "Depois — região periorbital revitalizada, fotografia clínica NanoSkinBio",
         },
       },
       {
         before: {
-          src: "/images/results/pair-3-before.jpg",
+          src: "/images/results/pair-3-before.png",
           alt: "Antes — região periorbital, fotografia clínica NanoSkinBio",
         },
         after: {
-          src: "/images/results/pair-3-after.jpg",
+          src: "/images/results/pair-3-after.png",
           alt: "Depois — região periorbital revitalizada, fotografia clínica NanoSkinBio",
         },
       },

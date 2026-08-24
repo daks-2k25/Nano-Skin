@@ -59,7 +59,7 @@ function CompareFrame({ pair }: { pair: Pair }) {
         if (e.key === "ArrowLeft") setPercent((p) => Math.max(3, p - 4));
         if (e.key === "ArrowRight") setPercent((p) => Math.min(97, p + 4));
       }}
-      className="relative aspect-[4/3] w-full touch-none select-none overflow-hidden rounded-[20px] bg-azure-900 ring-1 ring-inset ring-bone-50/15"
+      className="relative aspect-[17/10] w-full touch-none select-none overflow-hidden rounded-[20px] bg-azure-900 ring-1 ring-inset ring-bone-50/15"
     >
       <Image
         src={pair.before.src}
@@ -107,10 +107,15 @@ function CompareFrame({ pair }: { pair: Pair }) {
 export function ResultsGallery({ pairs }: { pairs: readonly Pair[] }) {
   return (
     <div className="relative">
-      <GlowOrb className="-bottom-24 -left-24" color="rgba(114,155,240,0.16)" size={320} drift={false} />
+      <GlowOrb
+        className="-bottom-24 -left-24"
+        color="rgba(114,155,240,0.16)"
+        size={320}
+        drift={false}
+      />
 
       {/* As três evidências lado a lado — paradas, controladas apenas pelo arraste do usuário */}
-      <div className="relative grid grid-cols-1 gap-10 sm:grid-cols-3 sm:gap-6">
+      <div className="relative grid grid-cols-1 gap-10 sm:grid-cols-3 sm:gap-3 md:-mx-6 lg:-mx-10">
         {pairs.map((pair, i) => (
           <Reveal key={pair.before.src} delay={0.08 * i}>
             <CompareFrame pair={pair} />

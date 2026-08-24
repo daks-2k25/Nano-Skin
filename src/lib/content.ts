@@ -108,7 +108,7 @@ export const numbers = {
 
 export const about = {
   eyebrow: "NanoSkinBio",
-  title: "Conceito Suiço. Ciência, precisão e padrão de luxo.",
+  title: "Conceito Suíço. Ciência, precisão e padrão de luxo.",
   body: "Desenvolvida em Zug, na Suíça, a NanoSkinBio segue um padrão globalmente reconhecido, focado em qualidade, eficácia, segurança, rastreabilidade e prestígio regulatório.",
   points: [
     "Conceito suíço (Swiss Concept)",
