@@ -158,9 +158,30 @@ export const images = {
     alt: "Encerramento cinematográfico com NanoSkinBio MED — fotografia oficial",
   },
   guia: {
-    clinicalProfile: {
-      src: "/images/guia/clinical-profile.jpg",
-      alt: "Antes e depois do protocolo NanoSkinBio, região perioral — fotografia clínica",
-    },
+    /**
+     * Evidências clínicas do protocolo — alimenta o carrossel da página
+     * Guia Prático. Basta adicionar novos itens aqui conforme mais
+     * fotografias clínicas forem fornecidas pela marca.
+     */
+    evidence: [
+      {
+        src: "/images/guia/clinical-profile.jpg",
+        alt: "Antes e depois do protocolo NanoSkinBio, região perioral — fotografia clínica",
+        label: "Região perioral",
+        objectPosition: "50% 50%",
+      },
+      {
+        src: "/images/antes-depois/perfil-1.jpg",
+        alt: "Antes e depois do protocolo NanoSkinBio, perfil facial — fotografia clínica",
+        label: "Perfil facial",
+        objectPosition: "50% 40%",
+      },
+      {
+        src: "/images/antes-depois/perfil-2.jpg",
+        alt: "Antes e depois do protocolo NanoSkinBio, perfil facial — fotografia clínica",
+        label: "Perfil facial",
+        objectPosition: "50% 40%",
+      },
+    ],
   },
 } as const;
