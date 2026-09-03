@@ -16,6 +16,11 @@ export type PlaceholderImage = {
   alt: string;
 };
 
+/** Vídeo de fundo do Hero — material oficial NanoSkinBio. */
+export const heroVideo = {
+  src: "/images/video/header-site.mp4",
+};
+
 /** Assets oficiais NanoSkinBio — produto, campanha, lab e lifestyle. */
 export const officialImages = {
   logo: {

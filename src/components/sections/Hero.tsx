@@ -1,21 +1,52 @@
 "use client";
 
-import Image from "next/image";
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { officialImages } from "@/lib/images";
+import { heroVideo } from "@/lib/images";
 import { hero } from "@/lib/content";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { GlowOrb, GridTexture, HairlineCross } from "@/components/ui/backdrop";
+import { useSafeReducedMotion } from "@/components/ui/Reveal";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 export function Hero() {
+  const reduceMotion = useSafeReducedMotion();
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // autoPlay no atributo só controla o carregamento inicial — garantimos
+  // reduced-motion de forma imperativa, mesmo se a preferência só for
+  // detectada depois que o vídeo já começou a tocar.
+  useEffect(() => {
+    const el = videoRef.current;
+    if (!el) return;
+    if (reduceMotion) el.pause();
+    else el.play().catch(() => {});
+  }, [reduceMotion]);
+
   return (
     <section
       id="top"
       className="relative flex min-h-[720px] w-full items-center overflow-hidden bg-azure-950 py-40 lg:h-[100svh] lg:py-0"
     >
+      <div className="absolute inset-0">
+        <video
+          ref={videoRef}
+          autoPlay={!reduceMotion}
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="h-full w-full object-cover"
+        >
+          <source src={heroVideo.src} type="video/mp4" />
+        </video>
+        {/* Overlay sutil — preserva a legibilidade do texto e a paleta azure sobre o vídeo */}
+        <div className="absolute inset-0 bg-gradient-to-r from-azure-950/92 via-azure-950/60 to-azure-950/25" />
+        <div className="absolute inset-0 bg-azure-950/20" />
+      </div>
+
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_78%_55%,rgba(71,126,235,0.20),transparent)]" />
       <GlowOrb
         className="-left-32 -top-24"
@@ -99,24 +130,6 @@ export function Hero() {
               <Button href="#protocolos" tone="light" variant="ghost">
                 {hero.ctaSecondary}
               </Button>
-            </motion.div>
-          </div>
-
-          <div className="relative lg:col-span-6">
-            <motion.div
-              initial={{ opacity: 0, scale: 1.04 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.6, delay: 0.3, ease: EASE }}
-              className="relative mx-auto aspect-[4/5] w-full max-w-[440px] overflow-hidden rounded-[24px] lg:max-w-none"
-            >
-              <Image
-                src={officialImages.productGlow.src}
-                alt={officialImages.productGlow.alt}
-                fill
-                priority
-                className="object-contain"
-                sizes="(min-width: 1024px) 44vw, 80vw"
-              />
             </motion.div>
           </div>
         </div>

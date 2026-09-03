@@ -76,8 +76,8 @@ export function Footer() {
 
         <div className="mt-8 flex flex-col gap-3 text-[11.5px] font-light text-bone-50/40 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            &copy; {new Date().getFullYear()} NanoSkinBio. Protótipo visual —
-            não representa o site oficial.
+            &copy; {new Date().getFullYear()} NanoSkinBio. - Todos os direitos
+            reservados
           </p>
           <p>Nano-hidroxiapatita · Ácido hialurônico · Peptídeos bioativos</p>
         </div>
