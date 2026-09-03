@@ -23,7 +23,7 @@ export function Recognition() {
         <HairlineCross className="left-[6%] top-[16%] hidden lg:block" opacity={0.28} />
 
         <Container className="relative">
-          <div className="grid grid-cols-1 items-center gap-14 border-t border-bone-50/12 pt-16 md:grid-cols-12 md:gap-8 md:pt-20">
+          <div className="grid grid-cols-1 items-center gap-14 border-t border-stone-500/60 pt-16 md:grid-cols-12 md:gap-8 md:pt-20">
             <div className="md:col-span-7">
               <Reveal>
                 <Eyebrow tone="light">{recognition.eyebrow}</Eyebrow>
@@ -43,7 +43,7 @@ export function Recognition() {
               </Reveal>
 
               <Reveal delay={0.32}>
-                <div className="mt-10 flex items-baseline gap-4 border-t border-bone-50/12 pt-6">
+                <div className="mt-10 flex items-baseline gap-4 border-t border-stone-500/60 pt-6">
                   <span className="whitespace-nowrap bg-gradient-to-b from-bone-50 to-azure-300 bg-clip-text font-display text-[11vw] font-light leading-none tracking-tightest text-transparent sm:text-[7vw] md:text-[2.8vw]">
                     {recognition.stat.value}
                   </span>
@@ -72,30 +72,17 @@ export function Recognition() {
                     alt={officialImages.awardCatalystFinalist.alt}
                     width={220}
                     height={220}
-                    className="relative w-[58%]"
+                    className="relative w-[84%]"
                   />
                 </div>
               </Reveal>
 
               <Reveal delay={0.3}>
                 <div className="mt-9 flex flex-col items-center gap-3 text-center">
-                  <div className="flex items-center gap-3">
-                    <Image
-                      src={officialImages.logo.src}
-                      alt={officialImages.logo.alt}
-                      width={22}
-                      height={22}
-                      className="h-6 w-auto opacity-90"
-                    />
-                    <span className="h-px w-6 bg-bone-50/20" />
-                    <span className="font-display text-[15px] font-light tracking-tight text-bone-50/80">
-                      NanoSkinBio
-                    </span>
-                  </div>
-                  <p className="font-mono text-[10px] uppercase tracking-widest2 text-bone-50/50">
+                  <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone-300">
                     {recognition.badge.line1}
                   </p>
-                  <p className="font-mono text-[10px] uppercase tracking-widest2 text-bone-50/35">
+                  <p className="font-mono text-[10px] uppercase tracking-widest2 text-stone-500">
                     {recognition.badge.line2}
                   </p>
                   <p className="mt-1 max-w-[26ch] text-[11px] font-light leading-snug text-bone-50/35">
