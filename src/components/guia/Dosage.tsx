@@ -57,14 +57,14 @@ export function Dosage() {
             {dosage.rows.map((row) => (
               <motion.div
                 key={row.region}
-                className="flex flex-col gap-2 border-b border-bone-50/12 py-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6"
+                className="flex items-center justify-between gap-4 border-b border-bone-50/12 py-5 sm:gap-6"
                 variants={{
                   hidden: { opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : 10 },
                   visible: { opacity: 1, y: 0, transition: { duration: reduceMotion ? 0 : 0.6, ease: EASE } },
                 }}
               >
-                <p className="text-[14.5px] font-light text-bone-50/85">{row.region}</p>
-                <div className="flex items-center gap-8 font-mono text-[12.5px] tabular-nums">
+                <p className="flex-1 text-[14.5px] font-light text-bone-50/85">{row.region}</p>
+                <div className="flex shrink-0 items-center gap-4 font-mono text-[12.5px] tabular-nums sm:gap-8">
                   <CountUp value={row.volumeMl} decimals={1} suffix=" ml" start={rowsInView} className="text-azure-300" />
                   <CountUp value={row.drops} suffix=" gotas" start={rowsInView} className="text-bone-50/45" />
                 </div>
