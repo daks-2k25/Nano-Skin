@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { useInView, useMotionValue, useSpring } from "framer-motion";
+import { useEffect, useState } from "react";
+import { useMotionValue, useSpring } from "framer-motion";
 import { useSafeReducedMotion } from "./Reveal";
 
 type CountUpProps = {
@@ -9,35 +9,44 @@ type CountUpProps = {
   decimals?: number;
   suffix?: string;
   className?: string;
+  /** Controla quando a contagem começa. Sem essa prop, conta assim que monta. */
+  start?: boolean;
 };
 
-/** Conta de 0 até o valor final quando entra na viewport — usa vírgula decimal (pt-BR). */
-export function CountUp({ value, decimals = 0, suffix = "", className }: CountUpProps) {
-  const ref = useRef<HTMLSpanElement>(null);
+function format(v: number, decimals: number, suffix: string) {
+  return `${v.toFixed(decimals).replace(".", ",")}${suffix}`;
+}
+
+/**
+ * Conta de 0 até o valor final — usa vírgula decimal (pt-BR).
+ *
+ * Recebe o "start" de um `whileInView`/`onViewportEnter` do componente pai
+ * em vez de observar a própria viewport: com várias instâncias vizinhas,
+ * cada uma com seu próprio `useInView`, o primeiro elemento de cada par
+ * nunca recebia `isInView: true` (mesmo o segundo funcionando normalmente) —
+ * uma instabilidade do IntersectionObserver do framer-motion com refs muito
+ * próximos entre si. Delegar a detecção de scroll a um único observer no
+ * pai elimina a corrida de vez.
+ */
+export function CountUp({ value, decimals = 0, suffix = "", className, start = true }: CountUpProps) {
   const reduceMotion = useSafeReducedMotion();
   const motionValue = useMotionValue(0);
   const spring = useSpring(motionValue, { damping: 28, stiffness: 90 });
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const [display, setDisplay] = useState(() => format(0, decimals, suffix));
 
   useEffect(() => {
-    if (isInView) motionValue.set(reduceMotion ? value : value);
-  }, [isInView, value, motionValue, reduceMotion]);
+    if (start) motionValue.set(value);
+  }, [start, value, motionValue]);
 
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
     if (reduceMotion) {
-      el.textContent = `${value.toFixed(decimals).replace(".", ",")}${suffix}`;
+      setDisplay(format(value, decimals, suffix));
       return;
     }
     return spring.on("change", (v) => {
-      el.textContent = `${v.toFixed(decimals).replace(".", ",")}${suffix}`;
+      setDisplay(format(v, decimals, suffix));
     });
   }, [spring, decimals, suffix, reduceMotion, value]);
 
-  return (
-    <span ref={ref} className={className}>
-      {`${(0).toFixed(decimals).replace(".", ",")}${suffix}`}
-    </span>
-  );
+  return <span className={className}>{display}</span>;
 }

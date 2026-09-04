@@ -216,7 +216,7 @@ export const guiaPratico = {
           "Fortalece a derme e a barreira e melhora a luminosidade — não é despigmentante direto.",
       },
     ],
-    note: "NanoSkinBio é um ativador de colágeno biomimético de uso tópico, formulado com nanohidroxiapatita, peptídeos bioativos e ácido hialurônico, que estimula a produção de colágeno — com resultados potencializados principalmente após protocolos de HOF (harmonização orofacial)",
+    note: "NanoSkinBio é um ativador de colágeno biomimético de uso tópico, formulado com nano-hidroxiapatita, peptídeos bioativos e ácido hialurônico, que estimula a produção de colágeno. Com resultados potencializados principalmente após protocolos de HOF (harmonização orofacial)",
   },
 
   dosage: {

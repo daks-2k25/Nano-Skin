@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { guiaPratico } from "@/lib/content";
@@ -15,6 +16,7 @@ import { GridTexture } from "@/components/ui/backdrop";
 export function Dosage() {
   const { dosage } = guiaPratico;
   const reduceMotion = useReducedMotion();
+  const [rowsInView, setRowsInView] = useState(false);
 
   return (
     <section className="relative overflow-hidden bg-[#0c2869] py-32 text-bone-50 md:py-40">
@@ -42,6 +44,7 @@ export function Dosage() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
+            onViewportEnter={() => setRowsInView(true)}
             variants={{
               hidden: {},
               visible: {
@@ -62,8 +65,8 @@ export function Dosage() {
               >
                 <p className="text-[14.5px] font-light text-bone-50/85">{row.region}</p>
                 <div className="flex items-center gap-8 font-mono text-[12.5px] tabular-nums">
-                  <CountUp value={row.volumeMl} decimals={1} suffix=" ml" className="text-azure-300" />
-                  <CountUp value={row.drops} suffix=" gotas" className="text-bone-50/45" />
+                  <CountUp value={row.volumeMl} decimals={1} suffix=" ml" start={rowsInView} className="text-azure-300" />
+                  <CountUp value={row.drops} suffix=" gotas" start={rowsInView} className="text-bone-50/45" />
                 </div>
               </motion.div>
             ))}
