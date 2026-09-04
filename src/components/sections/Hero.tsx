@@ -15,14 +15,43 @@ export function Hero() {
   const reduceMotion = useSafeReducedMotion();
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // autoPlay no atributo só controla o carregamento inicial — garantimos
-  // reduced-motion de forma imperativa, mesmo se a preferência só for
-  // detectada depois que o vídeo já começou a tocar.
+  // autoPlay no atributo só controla a primeira tentativa do navegador — em
+  // mobile essa tentativa pode falhar silenciosamente se o vídeo ainda não
+  // tiver dados suficientes (comum em conexão celular, mesmo com
+  // preload="auto"), deixando o elemento pausado com a UI nativa de play.
+  // Por isso tentamos de novo sempre que o vídeo sinalizar que está pronto,
+  // em vez de assumir que uma única chamada basta.
   useEffect(() => {
     const el = videoRef.current;
     if (!el) return;
-    if (reduceMotion) el.pause();
-    else el.play().catch(() => {});
+
+    if (reduceMotion) {
+      el.pause();
+      return;
+    }
+
+    // Redundante com os atributos HTML, mas alguns navegadores só respeitam
+    // autoplay quando "muted" também é setado como propriedade do elemento.
+    el.muted = true;
+    el.defaultMuted = true;
+
+    const tryPlay = () => {
+      el.play().catch(() => {
+        // Rejeição esperada quando o navegador ainda não liberou o autoplay
+        // (ex.: dados insuficientes) — os listeners abaixo tentam de novo.
+      });
+    };
+
+    tryPlay();
+    el.addEventListener("loadeddata", tryPlay);
+    el.addEventListener("canplay", tryPlay);
+    document.addEventListener("visibilitychange", tryPlay);
+
+    return () => {
+      el.removeEventListener("loadeddata", tryPlay);
+      el.removeEventListener("canplay", tryPlay);
+      document.removeEventListener("visibilitychange", tryPlay);
+    };
   }, [reduceMotion]);
 
   return (
@@ -38,7 +67,10 @@ export function Hero() {
           muted
           playsInline
           preload="auto"
-          className="h-full w-full object-cover"
+          disablePictureInPicture
+          disableRemotePlayback
+          controlsList="nodownload nofullscreen noremoteplayback noplaybackrate"
+          className="hero-video h-full w-full object-cover"
         >
           <source src={heroVideo.src} type="video/mp4" />
         </video>

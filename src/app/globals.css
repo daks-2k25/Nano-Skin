@@ -53,6 +53,18 @@ body {
   filter: saturate(0.5) contrast(1.05) brightness(1.01);
 }
 
+/* Vídeo de fundo do Hero — puramente decorativo, sem controles nativos.
+   Alguns navegadores mobile (Safari/iOS em especial) desenham seu próprio
+   botão de play sobre o vídeo pausado mesmo sem o atributo `controls`;
+   escondemos essa UI nativa explicitamente para nunca aparecer. */
+.hero-video::-webkit-media-controls,
+.hero-video::-webkit-media-controls-start-playback-button,
+.hero-video::-webkit-media-controls-panel,
+.hero-video::-webkit-media-controls-play-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
