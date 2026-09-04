@@ -63,7 +63,17 @@ export function Dosage() {
                   visible: { opacity: 1, y: 0, transition: { duration: reduceMotion ? 0 : 0.6, ease: EASE } },
                 }}
               >
-                <p className="flex-1 text-[14.5px] font-light text-bone-50/85">{row.region}</p>
+                <p className="flex-1 text-[14.5px] font-light text-bone-50/85">
+                  {row.region.includes(" (") ? (
+                    <>
+                      {row.region.slice(0, row.region.indexOf(" ("))}
+                      <br />
+                      {row.region.slice(row.region.indexOf(" (") + 1)}
+                    </>
+                  ) : (
+                    row.region
+                  )}
+                </p>
                 <div className="flex shrink-0 items-center gap-4 font-mono text-[12.5px] tabular-nums sm:gap-8">
                   <CountUp value={row.volumeMl} decimals={1} suffix=" ml" start={rowsInView} className="text-azure-300" />
                   <CountUp value={row.drops} suffix=" gotas" start={rowsInView} className="text-bone-50/45" />
