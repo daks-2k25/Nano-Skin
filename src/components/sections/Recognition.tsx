@@ -37,7 +37,7 @@ export function Recognition() {
               <Reveal
                 as="p"
                 delay={0.22}
-                className="mt-6 max-w-lg text-[14.5px] font-light leading-relaxed text-bone-50/70"
+                className="mt-6 max-w-none text-[14.5px] font-light leading-relaxed text-bone-50/70"
               >
                 {recognition.body}
               </Reveal>
