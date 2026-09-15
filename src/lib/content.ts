@@ -17,7 +17,7 @@ export const hero = {
   headline: ["O primeiro conceito", "de renovação", "biomimética da pele."],
   support:
     "Nano-hidroxiapatita, ácido hialurônico multi-profundidade e peptídeos bioativos, numa só plataforma biomimética.",
-  badges: ["Inovação Suíça", "aprovado pela anvisa"],
+  badges: ["Inovação Suíça", "Regularizado / Notificado na ANVISA (cosmético)"],
   ctaPrimary: "Conhecer a tecnologia",
   ctaSecondary: "Encontrar um protocolo",
 };
@@ -53,9 +53,9 @@ export const manifesto = {
 
 export const technology = {
   eyebrow: "Tecnologia",
-  title: "Três sistemas. Uma inteligência biomimética.",
+  title: "Sistema completo 5-em-1. Uma inteligência biomimética.",
   intro:
-    "A plataforma NanoSkinBio combina três abordagens complementares — desenvolvidas para atuar em profundidades distintas da pele, com a mesma lógica estrutural encontrada na biologia natural.",
+    "A plataforma NanoSkinBio reúne cinco componentes complementares que atuam ao longo de toda a cadeia do colágeno — do estímulo à remodelação —, em diferentes profundidades da pele, com a mesma lógica estrutural encontrada na biologia natural.",
   items: [
     {
       index: "01",
@@ -76,20 +76,38 @@ export const technology = {
       name: "Peptídeos Bioativos",
       subtitle: "Sequências avançadas",
       description:
-        "Sistema bioativo de peptídeos que fornece energia às células e potencializa a regeneração natural, com efeito antienvelhecimento.",
+        "Sistema bioativo de peptídeos que favorecem a adesão e a integridade celular, contribuindo para uma pele mais resistente e com melhor reparo.",
+    },
+    {
+      index: "04",
+      name: "Antioxidantes",
+      subtitle: "Proteção celular",
+      description:
+        "Complexo antioxidante que ajuda a proteger a pele contra o estresse oxidativo, contribuindo para a manutenção da sua saúde e qualidade ao longo do tempo.",
+    },
+    {
+      index: "05",
+      name: "Veículo de Entrega",
+      subtitle: "Absorção otimizada",
+      description:
+        "Sistema de entrega que conduz os ativos às camadas mais profundas da pele, otimizando a absorção e a atuação conjunta de toda a plataforma.",
     },
   ],
 };
 
 export const results = {
   eyebrow: "Resultados",
-  title: "A evidência está na pele.",
+  title: "Caso clínico",
   body: "Transformações observadas ao longo dos protocolos profissionais NanoSkinBio, com melhora progressiva da textura, firmeza e qualidade da pele.",
+  disclaimer:
+    "Casos clínicos individuais — observação de caso, não constitui prova de eficácia; resultados variam conforme o paciente.",
 };
 
 export const numbers = {
   eyebrow: "Evidências",
   title: "Precisão que se traduz em números.",
+  disclaimer:
+    "Dados observados em estudos pré-clínicos e publicações científicas em preparação — resultados individuais podem variar.",
   stats: [
     {
       value: "35",
@@ -113,7 +131,7 @@ export const about = {
   points: [
     "Conceito suíço (Swiss Concept)",
     "Primeira no mundo com nano-hidroxiapatita de cálcio (CaHA)",
-    "Tecnologia não injetável e não inflamatória",
+    "Tecnologia não injetável, com inflamação controlada",
     "Peptídeos Bioativos",
     "Ácido Hialurônico Multi-profundidade",
     "Tecnologia Biomimética",
@@ -159,6 +177,7 @@ export const finalCta = {
   title: "A ciência mudou. A sua pele merece acompanhar.",
   body: "Avaliação de protocolo profissional NanoSkinBio — para clínicas e especialistas credenciados.",
   cta: "Falar com a NanoSkinBio",
+  ctaDistributor: "Seja um distribuidor",
 };
 
 export const footer = {
@@ -178,7 +197,18 @@ export const footer = {
       title: "Conecte-se",
       links: ["Instagram", "Contato"],
     },
+    {
+      title: "Vendas e distribuição",
+      links: [
+        "41 3057-8800",
+        "41 3206-8654",
+        "WhatsApp · Vendas e distribuidores",
+        "Seja um distribuidor",
+        "nanoskinbiobrasil.com.br",
+      ],
+    },
   ],
+  importer: "Auguri · Importadora exclusiva",
 };
 
 /**
@@ -189,12 +219,14 @@ export const footer = {
  */
 export const guiaPratico = {
   rationale:
-    "O NanoSkinBio® foi concebido para interagir com o tecido dérmico através de um mecanismo biomimético e não inflamatório, apoiando a ativação de fibroblastos e a produção de colágeno.",
+    "O NanoSkinBio® foi concebido para interagir com o tecido dérmico através de um mecanismo biomimético e inflamação controlada, apoiando a ativação de fibroblastos e a produção de colágeno.",
 
   results: {
     eyebrow: "Resultados clínicos",
-    title: "A evidência do protocolo.",
+    title: "Caso clínico",
     caption: "Antes e depois do protocolo NanoSkinBio®.",
+    disclaimer:
+      "Casos clínicos individuais — observação de caso, não constitui prova de eficácia; resultados variam conforme o paciente e o protocolo aplicado.",
   },
 
   indications: {

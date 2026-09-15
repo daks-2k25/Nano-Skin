@@ -49,6 +49,12 @@ export function Results() {
         <Reveal delay={0.05}>
           <ResultsGallery pairs={images.results.pairs} />
         </Reveal>
+
+        <Reveal delay={0.1}>
+          <p className="mt-8 text-[11.5px] font-light text-bone-50/40">
+            {results.disclaimer}
+          </p>
+        </Reveal>
       </Container>
     </section>
   );

@@ -9,7 +9,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { technology } from "@/lib/content";
-import { images } from "@/lib/images";
+import { images, officialImages } from "@/lib/images";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Reveal } from "@/components/ui/Reveal";
@@ -19,6 +19,12 @@ const visuals = [
   images.technology.hydroxyapatite,
   images.technology.hyaluronic,
   images.technology.peptides,
+  // Antioxidantes e veículo de entrega são componentes novos (pedido do
+  // cliente para o sistema 5-em-1) sem fotografia dedicada ainda — reaproveita
+  // assets oficiais já existentes no projeto, sem duplicar o que já aparece
+  // em outras seções da home.
+  images.protocols.secondary,
+  officialImages.labScientist,
 ];
 
 type TechItem = (typeof technology.items)[number];

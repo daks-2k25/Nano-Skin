@@ -38,9 +38,23 @@ export function FinalCta() {
             </p>
           </Reveal>
           <Reveal delay={0.3}>
-            <div className="mt-11 flex justify-center">
-              <Button href="mailto:contato@nanoskinbio.com" tone="light" variant="primary">
+            <div className="mt-11 flex flex-wrap items-center justify-center gap-5">
+              <Button
+                href="mailto:contato@nanoskinbiobrasil.com.br"
+                tone="light"
+                variant="primary"
+              >
                 {finalCta.cta}
+              </Button>
+              <Button
+                href="https://wa.me/5511925675536"
+                target="_blank"
+                rel="noopener noreferrer"
+                tone="light"
+                variant="secondary"
+                className="md:px-9 md:py-[18px]"
+              >
+                {finalCta.ctaDistributor}
               </Button>
             </div>
           </Reveal>

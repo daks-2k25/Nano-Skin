@@ -53,6 +53,12 @@ export function Numbers() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal delay={0.1}>
+          <p className="mt-8 text-[11.5px] font-light text-bone-50/40">
+            {numbers.disclaimer}
+          </p>
+        </Reveal>
       </Container>
     </section>
   );

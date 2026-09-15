@@ -40,6 +40,12 @@ export function GuiaResults() {
             <EvidenceCarousel slides={images.guia.evidence} />
           </div>
         </Reveal>
+
+        <Reveal delay={0.15}>
+          <p className="mt-6 text-center text-[11.5px] font-light text-bone-50/40">
+            {results.disclaimer}
+          </p>
+        </Reveal>
       </Container>
     </section>
   );
