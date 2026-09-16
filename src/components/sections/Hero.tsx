@@ -105,13 +105,13 @@ export function Hero() {
               {hero.headline.map((line, i) => (
                 <motion.span
                   key={line}
-                  initial={{ opacity: 0, y: 36 }}
+                  initial={reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 36 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 1.1,
-                    delay: 0.55 + i * 0.12,
-                    ease: EASE,
-                  }}
+                  transition={
+                    reduceMotion
+                      ? { duration: 0 }
+                      : { duration: 1.1, delay: 0.55 + i * 0.12, ease: EASE }
+                  }
                   className="block overflow-hidden"
                 >
                   {i === hero.headline.length - 1 ? (
@@ -126,18 +126,18 @@ export function Hero() {
             </h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 14 }}
+              initial={reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 1.05, ease: EASE }}
+              transition={reduceMotion ? { duration: 0 } : { duration: 1, delay: 1.05, ease: EASE }}
               className="mt-8 max-w-md text-[15px] font-light leading-relaxed text-bone-50/75"
             >
               {hero.support}
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, y: 14 }}
+              initial={reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 1.2, ease: EASE }}
+              transition={reduceMotion ? { duration: 0 } : { duration: 1, delay: 1.2, ease: EASE }}
               className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2"
             >
               {hero.badges.map((badge) => (
@@ -151,9 +151,9 @@ export function Hero() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 14 }}
+              initial={reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 1.35, ease: EASE }}
+              transition={reduceMotion ? { duration: 0 } : { duration: 1, delay: 1.35, ease: EASE }}
               className="mt-9 flex flex-wrap items-center gap-5"
             >
               <Button href="#tecnologia" tone="light" variant="primary">
@@ -168,9 +168,9 @@ export function Hero() {
       </Container>
 
       <motion.div
-        initial={{ opacity: 0 }}
+        initial={reduceMotion ? { opacity: 1 } : { opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.6 }}
+        transition={reduceMotion ? { duration: 0 } : { duration: 1, delay: 1.6 }}
         className="absolute bottom-10 right-6 z-10 hidden flex-col items-center gap-3 lg:right-16 lg:flex"
       >
         <span className="font-mono text-[10px] uppercase tracking-widest2 text-bone-50/50">
@@ -179,8 +179,12 @@ export function Hero() {
         <span className="relative h-14 w-px overflow-hidden bg-bone-50/20">
           <motion.span
             className="absolute inset-x-0 top-0 h-1/2 bg-azure-300"
-            animate={{ y: ["-100%", "200%"] }}
-            transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+            animate={reduceMotion ? { y: "0%" } : { y: ["-100%", "200%"] }}
+            transition={
+              reduceMotion
+                ? { duration: 0 }
+                : { duration: 2.2, repeat: Infinity, ease: "easeInOut" }
+            }
           />
         </span>
       </motion.div>
