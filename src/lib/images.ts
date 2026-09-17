@@ -6,7 +6,7 @@
  * mais os assets originais já verificados em nanoskinbiobrasil.com.br.
  * Nenhuma imagem de banco de imagens genérico permanece no protótipo.
  *
- * Os 3 pares de antes/depois em `results` são fotografia clínica real,
+ * Os pares de antes/depois em `results` são fotografia clínica real,
  * fornecida e autorizada pela marca — recortados apenas para remover a
  * marca d'água de um estúdio parceiro, sem qualquer alteração de conteúdo.
  */
@@ -82,8 +82,14 @@ export const officialImages = {
 export const images = {
   technology: {
     hydroxyapatite: {
-      src: "/images/lifestyle/technology-hydroxyapatite.jpg",
-      alt: "Textura de pele em macro, luz natural — referência à firmeza e densidade estrutural",
+      // TESTE — v3: mesma imagem v2 (renderização em cristal), com o fundo
+      // navy recolorido para bater exatamente com o azul de fundo do site
+      // (#0c2869). Para reverter, trocar o src de volta para
+      // "/images/lifestyle/technology-hydroxyapatite-comparison.png" ou
+      // "/images/lifestyle/technology-hydroxyapatite-comparison-v2.jpg"
+      // (ambos os arquivos foram preservados, não foram apagados).
+      src: "/images/imagens novas/POSTS NANOSKIN.png",
+      alt: "Comparação técnica de partículas — Micro-hidroxiapatita convencional (25–45 μm) vs. NanoSkinBio (~35 nm)",
     },
     hyaluronic: {
       src: "/images/lifestyle/technology-hyaluronic.jpg",
@@ -124,6 +130,36 @@ export const images = {
         after: {
           src: "/images/results/pair-3-after.jpg",
           alt: "Depois — região periorbital revitalizada, fotografia clínica NanoSkinBio",
+        },
+      },
+      {
+        before: {
+          src: "/images/results/pair-4-before.jpg",
+          alt: "Antes — fotografia clínica NanoSkinBio",
+        },
+        after: {
+          src: "/images/results/pair-4-after.jpg",
+          alt: "Depois — fotografia clínica NanoSkinBio, resultado do protocolo",
+        },
+      },
+      {
+        before: {
+          src: "/images/results/pair-5-before.jpg",
+          alt: "Antes — fotografia clínica NanoSkinBio",
+        },
+        after: {
+          src: "/images/results/pair-5-after.jpg",
+          alt: "Depois — fotografia clínica NanoSkinBio, resultado do protocolo",
+        },
+      },
+      {
+        before: {
+          src: "/images/results/pair-6-before.jpg",
+          alt: "Antes — fotografia clínica NanoSkinBio",
+        },
+        after: {
+          src: "/images/results/pair-6-after.jpg",
+          alt: "Depois — fotografia clínica NanoSkinBio, resultado do protocolo",
         },
       },
     ],

@@ -87,7 +87,7 @@ export const technology = {
     },
     {
       index: "05",
-      name: "Veículo de Entrega",
+      name: "Sistema de absorção",
       subtitle: "Absorção otimizada",
       description:
         "Sistema de entrega que conduz os ativos às camadas mais profundas da pele, otimizando a absorção e a atuação conjunta de toda a plataforma.",
