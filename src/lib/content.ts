@@ -53,7 +53,7 @@ export const manifesto = {
 
 export const technology = {
   eyebrow: "Tecnologia",
-  title: "Sistema completo 5-em-1. Uma inteligência biomimética.",
+  title: "Sistema completo 5‑em‑1. Uma inteligência biomimética.",
   intro:
     "A plataforma NanoSkinBio reúne cinco componentes complementares que atuam ao longo de toda a cadeia do colágeno — do estímulo à remodelação —, em diferentes profundidades da pele, com a mesma lógica estrutural encontrada na biologia natural.",
   items: [

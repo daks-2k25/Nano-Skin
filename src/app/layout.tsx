@@ -24,10 +24,47 @@ const cordiaNew = localFont({
   display: "swap",
 });
 
+const siteUrl = "https://www.nanoskinbiobrasil.com.br";
+const siteTitle = "NanoSkinBio — Biomimetic Skin Technology";
+const siteDescription =
+  "Uma nova geração de tecnologia biomimética para a pele: nano-hidroxiapatita, ácido hialurônico multi-profundidade e peptídeos biomiméticos.";
+const ogImage = "/images/og/og-default.jpg";
+
 export const metadata: Metadata = {
-  title: "NanoSkinBio — Biomimetic Skin Technology",
-  description:
-    "Uma nova geração de tecnologia biomimética para a pele: nano-hidroxiapatita, ácido hialurônico multi-profundidade e peptídeos biomiméticos.",
+  metadataBase: new URL(siteUrl),
+  title: siteTitle,
+  description: siteDescription,
+  keywords: [
+    "NanoSkinBio",
+    "nano-hidroxiapatita",
+    "ácido hialurônico multi-profundidade",
+    "peptídeos biomiméticos",
+    "tecnologia biomimética para a pele",
+  ],
+  alternates: {
+    canonical: `${siteUrl}/`,
+  },
+  openGraph: {
+    title: siteTitle,
+    description: siteDescription,
+    url: `${siteUrl}/`,
+    siteName: "NanoSkinBio",
+    locale: "pt_BR",
+    type: "website",
+    images: [
+      {
+        url: ogImage,
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+    images: [ogImage],
+  },
 };
 
 export default function RootLayout({
