@@ -10,8 +10,9 @@ import { Menu, X } from "lucide-react";
 import { nav } from "@/lib/content";
 import { officialImages } from "@/lib/images";
 import { resolveNavHref } from "@/lib/nav";
-import { Container } from "@/components/ui/Container";
 import { EASE, useSafeReducedMotion } from "@/components/ui/Reveal";
+
+const headerShell = "mx-auto w-full max-w-[1600px] px-6 md:px-10 lg:px-16";
 
 export function Header() {
   const pathname = usePathname();
@@ -113,7 +114,7 @@ export function Header() {
           : "border-b border-transparent bg-transparent",
       )}
     >
-      <Container>
+      <div className={headerShell}>
         <div
           className={clsx(
             "flex items-center justify-between transition-all duration-500 ease-premium",
@@ -180,7 +181,7 @@ export function Header() {
             />
           </button>
         </div>
-      </Container>
+      </div>
 
       {mounted &&
         createPortal(
@@ -198,7 +199,7 @@ export function Header() {
                 transition={{ duration: reduceMotion ? 0 : 0.4, ease: EASE }}
                 className="fixed inset-0 z-40 overflow-y-auto border-t border-bone-50/10 bg-azure-950/98 backdrop-blur-md 2xl:hidden"
               >
-                <Container>
+                <div className={headerShell}>
                   <nav aria-label="Navegação mobile" className="flex flex-col pb-10 pt-28">
                     {nav.map((item) => (
                       <a
@@ -211,7 +212,7 @@ export function Header() {
                       </a>
                     ))}
                   </nav>
-                </Container>
+                </div>
               </motion.div>
             )}
           </AnimatePresence>,
