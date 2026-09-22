@@ -8,11 +8,11 @@ import { resolveNavHref } from "@/lib/nav";
 import { Container } from "@/components/ui/Container";
 
 // Rótulos de "footer.columns" que não são âncoras internas de navegação —
-// e-mail, redes sociais, telefone e WhatsApp têm destino fixo, então saem
-// direto daqui em vez de caírem no fallback de navegação (que os jogava
-// para "#top" por não baterem com nenhum item de `nav`).
+// redes sociais, telefone e WhatsApp têm destino fixo, então saem direto
+// daqui em vez de caírem no fallback de navegação (que os jogava para
+// "#top" por não baterem com nenhum item de `nav`). "Contato" não entra
+// aqui: agora existe em `nav` (#contato), então cai no fallback abaixo.
 const EXTERNAL_LINKS: Record<string, { href: string; external?: boolean }> = {
-  Contato: { href: "mailto:contato@nanoskinbiobrasil.com.br" },
   Instagram: { href: "https://www.instagram.com/nanoskinbiobrasil/", external: true },
   "41 3057-8800": { href: "tel:+554130578800" },
   "41 3206-8654": { href: "tel:+554132068654" },

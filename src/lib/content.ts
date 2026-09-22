@@ -11,6 +11,7 @@ export const nav = [
   { label: "NanoSkinBio", href: "#sobre" },
   { label: "Protocolos", href: "#protocolos" },
   { label: "Guia Prático", href: "/guia-pratico" },
+  { label: "Contato", href: "/contato" },
 ] as const;
 
 export const hero = {
@@ -178,6 +179,77 @@ export const finalCta = {
   body: "Avaliação de protocolo profissional NanoSkinBio — para clínicas e especialistas credenciados.",
   cta: "Falar com a NanoSkinBio",
   ctaDistributor: "Seja um distribuidor",
+};
+
+/**
+ * Seção de contato — canais reaproveitados de `footer` (mesmos e-mail,
+ * telefones, WhatsApp e Instagram já usados no rodapé; nenhum dado novo).
+ * O formulário nesta etapa é apenas visual: `submit`/`submitting`/`success`
+ * cobrem o estado simulado, sem envio real.
+ */
+export const contact = {
+  eyebrow: "Contato",
+  title: "Fale com a NanoSkinBio.",
+  body: "Preencha seus dados e nossa equipe entrará em contato para entender sua necessidade e orientar você da melhor forma.",
+  channels: [
+    {
+      label: "E-mail",
+      value: "contato@nanoskinbiobrasil.com.br",
+      href: "mailto:contato@nanoskinbiobrasil.com.br",
+    },
+    {
+      label: "Telefone",
+      value: "41 3057-8800",
+      href: "tel:+554130578800",
+    },
+    {
+      label: "Telefone",
+      value: "41 3206-8654",
+      href: "tel:+554132068654",
+    },
+    {
+      label: "WhatsApp",
+      value: "Vendas e distribuidores",
+      href: "https://wa.me/5511925675536",
+      external: true,
+    },
+    {
+      label: "Instagram",
+      value: "@nanoskinbiobrasil",
+      href: "https://www.instagram.com/nanoskinbiobrasil/",
+      external: true,
+    },
+  ],
+  form: {
+    fields: {
+      name: { label: "Nome completo", placeholder: "Seu nome" },
+      email: { label: "E-mail", placeholder: "seu@email.com" },
+      phone: { label: "Telefone / WhatsApp", placeholder: "(00) 00000-0000" },
+      company: { label: "Clínica / Empresa", placeholder: "Nome da clínica ou empresa" },
+      profile: {
+        label: "Perfil",
+        placeholder: "Selecione",
+        options: ["Médico(a)", "Esteticista", "Distribuidor", "Outro"],
+      },
+      message: {
+        label: "Mensagem",
+        placeholder: "Conte um pouco sobre sua necessidade.",
+      },
+    },
+    submit: "Enviar mensagem",
+    submitting: "Enviando...",
+    success: {
+      title: "Mensagem recebida.",
+      body: "Este formulário ainda é uma demonstração visual — o envio não está conectado a um canal real. Em breve nossa equipe poderá recebê-la por aqui.",
+      reset: "Enviar nova mensagem",
+    },
+    errors: {
+      name: "Informe seu nome completo.",
+      email: "Informe um e-mail válido.",
+      phone: "Informe um telefone válido, com DDD.",
+      message: "Escreva uma breve mensagem (mínimo 10 caracteres).",
+    },
+  },
 };
 
 export const footer = {

@@ -45,10 +45,13 @@ export function Header() {
     setOpen(false);
   }, [pathname]);
 
-  // Fecha o menu mobile se a viewport crescer até o breakpoint desktop (xl).
+  // Fecha o menu mobile se a viewport crescer até o breakpoint desktop (2xl).
+  // 2xl (1536px) em vez de xl (1280px): com 6 itens de navegação + CTA, o
+  // header não cabe com espaçamento adequado abaixo de ~1536px — abaixo
+  // disso o menu mobile assume mesmo em telas "desktop" menores.
   useEffect(() => {
     if (!open) return;
-    const mql = window.matchMedia("(min-width: 1280px)");
+    const mql = window.matchMedia("(min-width: 1536px)");
     function onChange(e: MediaQueryListEvent) {
       if (e.matches) setOpen(false);
     }
@@ -119,7 +122,7 @@ export function Header() {
         >
           <a
             href={resolveNavHref("#top", pathname)}
-            className="flex items-center gap-3 font-logo text-[30px] tracking-tight text-bone-50 transition-colors duration-500 md:text-[48px]"
+            className="flex items-center gap-3 font-logo text-[30px] tracking-tight text-bone-50 transition-colors duration-500 md:text-[48px] 2xl:text-[40px]"
           >
             <Image
               src={officialImages.logo.src}
@@ -131,7 +134,7 @@ export function Header() {
             NanoSkinBio
           </a>
 
-          <nav className="hidden items-center gap-10 font-sans text-[12.5px] uppercase tracking-widest2 text-bone-50/80 transition-colors duration-500 xl:flex">
+          <nav className="hidden items-center gap-7 font-sans text-[12.5px] uppercase tracking-widest2 text-bone-50/80 transition-colors duration-500 2xl:flex">
             {nav.map((item) => (
               <a
                 key={item.href}
@@ -145,7 +148,7 @@ export function Header() {
 
           <a
             href={resolveNavHref("#protocolos", pathname)}
-            className="hidden border-b border-azure-300/45 pb-1 text-[12px] uppercase tracking-widest2 text-bone-50 transition-all duration-500 hover:border-azure-300 xl:inline-flex"
+            className="hidden border-b border-azure-300/45 pb-1 text-[12px] uppercase tracking-widest2 text-bone-50 transition-all duration-500 hover:border-azure-300 2xl:inline-flex"
           >
             Encontrar protocolo
           </a>
@@ -156,7 +159,7 @@ export function Header() {
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-controls={menuId}
-            className="relative inline-flex h-9 w-9 items-center justify-center text-bone-50 transition-colors duration-300 hover:text-azure-300 focus-visible:text-azure-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-azure-300 xl:hidden"
+            className="relative inline-flex h-9 w-9 items-center justify-center text-bone-50 transition-colors duration-300 hover:text-azure-300 focus-visible:text-azure-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-azure-300 2xl:hidden"
           >
             <span className="sr-only">{open ? "Fechar menu" : "Abrir menu"}</span>
             <Menu
@@ -193,7 +196,7 @@ export function Header() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: reduceMotion ? 0 : -10 }}
                 transition={{ duration: reduceMotion ? 0 : 0.4, ease: EASE }}
-                className="fixed inset-0 z-40 overflow-y-auto border-t border-bone-50/10 bg-azure-950/98 backdrop-blur-md xl:hidden"
+                className="fixed inset-0 z-40 overflow-y-auto border-t border-bone-50/10 bg-azure-950/98 backdrop-blur-md 2xl:hidden"
               >
                 <Container>
                   <nav aria-label="Navegação mobile" className="flex flex-col pb-10 pt-28">

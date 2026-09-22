@@ -8,5 +8,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: "https://www.nanoskinbiobrasil.com.br/guia-pratico",
     },
+    {
+      url: "https://www.nanoskinbiobrasil.com.br/contato",
+    },
   ];
 }
