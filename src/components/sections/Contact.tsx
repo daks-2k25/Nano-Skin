@@ -255,14 +255,14 @@ export function Contact() {
           <div className="mx-auto mt-20 max-w-3xl border-t border-bone-50/12 pt-12 md:mt-24">
             <ul className="grid grid-cols-2 gap-x-8 gap-y-8 sm:grid-cols-3 md:grid-cols-5">
               {contact.channels.map((channel, i) => (
-                <li key={`${channel.label}-${channel.value}-${i}`} className="flex flex-col gap-2">
+                <li key={`${channel.label}-${channel.value}-${i}`} className="flex min-w-0 flex-col gap-2">
                   <span className="font-mono text-[11px] uppercase tracking-widest2 text-bone-50/45">
                     {channel.label}
                   </span>
                   <a
                     href={channel.href}
                     {...(channel.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                    className="text-[13.5px] font-light text-bone-50 transition-colors duration-300 hover:text-azure-300"
+                    className="break-words text-[13.5px] font-light text-bone-50 transition-colors duration-300 hover:text-azure-300"
                   >
                     {channel.value}
                   </a>

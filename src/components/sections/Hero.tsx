@@ -1,15 +1,12 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
 import { heroVideo } from "@/lib/images";
 import { hero } from "@/lib/content";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { GlowOrb, GridTexture, HairlineCross } from "@/components/ui/backdrop";
 import { useSafeReducedMotion } from "@/components/ui/Reveal";
-
-const EASE = [0.16, 1, 0.3, 1] as const;
 
 export function Hero() {
   const reduceMotion = useSafeReducedMotion();
@@ -103,17 +100,7 @@ export function Hero() {
           <div className="lg:col-span-6">
             <h1 className="font-display text-[13vw] leading-[0.98] tracking-tightest text-bone-50 sm:text-[9vw] lg:text-[4.6vw]">
               {hero.headline.map((line, i) => (
-                <motion.span
-                  key={line}
-                  initial={reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 36 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={
-                    reduceMotion
-                      ? { duration: 0 }
-                      : { duration: 1.1, delay: 0.55 + i * 0.12, ease: EASE }
-                  }
-                  className="block overflow-hidden"
-                >
+                <span key={line} className="block overflow-hidden">
                   {i === hero.headline.length - 1 ? (
                     <span className="font-display-italic bg-gradient-to-r from-bone-50 via-azure-300 to-azure-500 bg-clip-text text-transparent">
                       {line}
@@ -121,25 +108,15 @@ export function Hero() {
                   ) : (
                     line
                   )}
-                </motion.span>
+                </span>
               ))}
             </h1>
 
-            <motion.p
-              initial={reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={reduceMotion ? { duration: 0 } : { duration: 1, delay: 1.05, ease: EASE }}
-              className="mt-8 max-w-md text-[15px] font-light leading-relaxed text-bone-50/75"
-            >
+            <p className="mt-8 max-w-md text-[15px] font-light leading-relaxed text-bone-50/75">
               {hero.support}
-            </motion.p>
+            </p>
 
-            <motion.div
-              initial={reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={reduceMotion ? { duration: 0 } : { duration: 1, delay: 1.2, ease: EASE }}
-              className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2"
-            >
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2">
               {hero.badges.map((badge) => (
                 <span
                   key={badge}
@@ -148,46 +125,28 @@ export function Hero() {
                   {badge}
                 </span>
               ))}
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={reduceMotion ? { duration: 0 } : { duration: 1, delay: 1.35, ease: EASE }}
-              className="mt-9 flex flex-wrap items-center gap-5"
-            >
+            <div className="mt-9 flex flex-wrap items-center gap-5">
               <Button href="#tecnologia" tone="light" variant="primary">
                 {hero.ctaPrimary}
               </Button>
               <Button href="#protocolos" tone="light" variant="ghost">
                 {hero.ctaSecondary}
               </Button>
-            </motion.div>
+            </div>
           </div>
         </div>
       </Container>
 
-      <motion.div
-        initial={reduceMotion ? { opacity: 1 } : { opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={reduceMotion ? { duration: 0 } : { duration: 1, delay: 1.6 }}
-        className="absolute bottom-10 right-6 z-10 hidden flex-col items-center gap-3 lg:right-16 lg:flex"
-      >
+      <div className="absolute bottom-10 right-6 z-10 hidden flex-col items-center gap-3 lg:right-16 lg:flex">
         <span className="font-mono text-[10px] uppercase tracking-widest2 text-bone-50/50">
           Scroll
         </span>
         <span className="relative h-14 w-px overflow-hidden bg-bone-50/20">
-          <motion.span
-            className="absolute inset-x-0 top-0 h-1/2 bg-azure-300"
-            animate={reduceMotion ? { y: "0%" } : { y: ["-100%", "200%"] }}
-            transition={
-              reduceMotion
-                ? { duration: 0 }
-                : { duration: 2.2, repeat: Infinity, ease: "easeInOut" }
-            }
-          />
+          <span className="absolute inset-x-0 top-0 h-1/2 bg-azure-300" />
         </span>
-      </motion.div>
+      </div>
     </section>
   );
 }
