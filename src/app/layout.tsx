@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     "nano-hidroxiapatita",
     "ácido hialurônico multi-profundidade",
     "peptídeos biomiméticos",
-    "tecnologia biomimética para a pele",
+    "tecnologia biomimética para a pele ",
   ],
   alternates: {
     canonical: `${siteUrl}/`,
