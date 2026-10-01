@@ -15,7 +15,7 @@ export const nav = [
 ] as const;
 
 export const hero = {
-  headline: ["O primeiro conceito", "de renovação", "biomimética da pele."],
+  headline: ["O 1º ativador", "de colágeno", "biomimético do mundo."],
   support:
     "Nano-hidroxiapatita, ácido hialurônico multi-profundidade e peptídeos bioativos, numa só plataforma biomimética.",
   badges: ["Inovação Suíça", "Regularizado / Notificado na ANVISA (cosmético)"],
@@ -57,6 +57,11 @@ export const technology = {
   title: "Sistema completo 5‑em‑1. Uma inteligência biomimética.",
   intro:
     "A plataforma NanoSkinBio reúne cinco componentes complementares que atuam ao longo de toda a cadeia do colágeno — do estímulo à remodelação —, em diferentes profundidades da pele, com a mesma lógica estrutural encontrada na biologia natural.",
+  // Frase-âncora anti-manipulação (pedido do cliente) — versão curta no
+  // cabeçalho da seção; versão principal e selo ficam no item 01, junto da
+  // comparação nano 35 nm × micro-hidroxiapatita.
+  anchor:
+    "Escala nanométrica padronizada, de grau industrial. Não é manipulável.",
   items: [
     {
       index: "01",
@@ -64,6 +69,9 @@ export const technology = {
       subtitle: "35nm · CaHA biomimética",
       description:
         "Primeira no mundo com nano-hidroxiapatita de cálcio (CaHA): tecnologia biomimética que atua diretamente sobre os fibroblastos, sinalizando a produção natural de colágeno e elastina.",
+      anchor:
+        "Tecnologia proprietária, produzida industrialmente — um padrão de nanopartícula que a manipulação não reproduz.",
+      badge: "Tecnologia proprietária · não replicável em manipulação",
     },
     {
       index: "02",
@@ -101,7 +109,7 @@ export const results = {
   title: "Caso clínico",
   body: "Transformações observadas ao longo dos protocolos profissionais NanoSkinBio, com melhora progressiva da textura, firmeza e qualidade da pele.",
   disclaimer:
-    "Casos clínicos individuais — observação de caso, não constitui prova de eficácia; resultados variam conforme o paciente.",
+    "Casos clínicos individuais — observação de casos clínicos, não constitui prova de eficácia; resultados variam conforme o paciente.",
 };
 
 export const numbers = {
@@ -120,8 +128,12 @@ export const numbers = {
       unit: "h",
       label: "Hidratação sustentada em multi-profundidade",
     },
-    { value: "21", unit: "dias", label: "Para o resultado pleno" },
-    { value: "18", unit: "meses", label: "De resultado sustentado" },
+    { value: "21", unit: "dias", label: "Pico de atividade dos fibroblastos" },
+    {
+      value: "18",
+      unit: "meses",
+      label: "resultados que podem durar até 18 meses",
+    },
   ],
 };
 
@@ -172,6 +184,16 @@ export const protocols = {
       "Aplicação de grau médico",
     ],
   },
+};
+
+// Bloco de negócio (opcional, pedido do cliente) — para clínicas e
+// distribuidores, sem preço e sem fórmula.
+export const business = {
+  eyebrow: "Para clínicas e distribuidores",
+  title: "Feito para girar na sua clínica.",
+  body: "Um protocolo profissional de alto valor percebido, que se paga ao longo das sessões e fideliza o paciente pela recorrência.",
+  note: "Condições exclusivas para clínicas e distribuidores credenciados.",
+  cta: "Seja um distribuidor",
 };
 
 export const finalCta = {
@@ -225,7 +247,10 @@ export const contact = {
       name: { label: "Nome completo", placeholder: "Seu nome" },
       email: { label: "E-mail", placeholder: "seu@email.com" },
       phone: { label: "Telefone / WhatsApp", placeholder: "(00) 00000-0000" },
-      company: { label: "Clínica / Empresa", placeholder: "Nome da clínica ou empresa" },
+      company: {
+        label: "Clínica / Empresa",
+        placeholder: "Nome da clínica ou empresa",
+      },
       profile: {
         label: "Perfil",
         placeholder: "Selecione",

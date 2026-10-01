@@ -60,6 +60,16 @@ function SystemPanel({
             <p className="mt-6 max-w-md text-[16px] font-light leading-relaxed text-bone-50/65 md:text-[16.5px]">
               {item.description}
             </p>
+            {item.anchor && (
+              <p className="mt-6 max-w-md border-l border-azure-300/60 pl-4 font-display text-[17px] italic leading-snug text-bone-50/90">
+                {item.anchor}
+              </p>
+            )}
+            {item.badge && (
+              <span className="mt-5 inline-block rounded-full border border-azure-300/40 px-4 py-2 font-mono text-[10px] uppercase tracking-widest2 text-azure-300">
+                {item.badge}
+              </span>
+            )}
           </div>
 
           <div className="md:col-span-5 md:col-start-8">
@@ -132,6 +142,9 @@ export function Technology() {
                 <p className="mt-2 text-[15.5px] font-light leading-relaxed text-bone-50/65">
                   {technology.intro}
                 </p>
+                <p className="mt-6 font-display text-[18px] italic leading-snug text-bone-50/90">
+                  {technology.anchor}
+                </p>
               </Reveal>
             </div>
           </div>
@@ -198,6 +211,16 @@ export function Technology() {
               <p className="mt-6 max-w-md text-[15px] font-light leading-relaxed text-bone-50/60">
                 {item.description}
               </p>
+              {item.anchor && (
+                <p className="mt-5 max-w-md border-l border-azure-300/60 pl-4 font-display text-[16px] italic leading-snug text-bone-50/90">
+                  {item.anchor}
+                </p>
+              )}
+              {item.badge && (
+                <span className="mt-5 inline-block rounded-full border border-azure-300/40 px-4 py-2 font-mono text-[10px] uppercase tracking-widest2 text-azure-300">
+                  {item.badge}
+                </span>
+              )}
             </Container>
           </Reveal>
         ))}

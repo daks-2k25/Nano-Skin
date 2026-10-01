@@ -100,9 +100,14 @@ export function Hero() {
           <div className="lg:col-span-6">
             <h1 className="font-display text-[13vw] leading-[0.98] tracking-tightest text-bone-50 sm:text-[9vw] lg:text-[4.6vw]">
               {hero.headline.map((line, i) => (
-                <span key={line} className="block overflow-hidden">
+                // pb/-mb: folga para a perna de "g"/"p" não ser recortada pelo
+                // overflow-hidden com leading apertado, sem alterar o espaçamento.
+                <span
+                  key={line}
+                  className="-mb-[0.2em] block overflow-hidden pb-[0.2em] last:mb-0"
+                >
                   {i === hero.headline.length - 1 ? (
-                    <span className="font-display-italic bg-gradient-to-r from-bone-50 via-azure-300 to-azure-500 bg-clip-text text-transparent">
+                    <span className="font-display-italic bg-gradient-to-r pb-[0.2em] from-bone-50 via-azure-300 to-azure-500 bg-clip-text text-transparent">
                       {line}
                     </span>
                   ) : (
