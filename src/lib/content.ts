@@ -22,7 +22,7 @@ export const hero = {
   ctaPrimary: "Conhecer a tecnologia",
   ctaSecondary: "Encontrar um protocolo",
 };
-
+//
 export const manifesto = {
   eyebrow: "O mecanismo",
   intro:
