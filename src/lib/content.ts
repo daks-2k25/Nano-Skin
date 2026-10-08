@@ -206,8 +206,7 @@ export const finalCta = {
 /**
  * Seção de contato — canais reaproveitados de `footer` (mesmos e-mail,
  * telefones, WhatsApp e Instagram já usados no rodapé; nenhum dado novo).
- * O formulário nesta etapa é apenas visual: `submit`/`submitting`/`success`
- * cobrem o estado simulado, sem envio real.
+ * O formulário é o embed do Tally (ver Contact.tsx).
  */
 export const contact = {
   eyebrow: "Contato",
@@ -242,39 +241,6 @@ export const contact = {
       external: true,
     },
   ],
-  form: {
-    fields: {
-      name: { label: "Nome completo", placeholder: "Seu nome" },
-      email: { label: "E-mail", placeholder: "seu@email.com" },
-      phone: { label: "Telefone / WhatsApp", placeholder: "(00) 00000-0000" },
-      company: {
-        label: "Clínica / Empresa",
-        placeholder: "Nome da clínica ou empresa",
-      },
-      profile: {
-        label: "Perfil",
-        placeholder: "Selecione",
-        options: ["Médico(a)", "Esteticista", "Distribuidor", "Outro"],
-      },
-      message: {
-        label: "Mensagem",
-        placeholder: "Conte um pouco sobre sua necessidade.",
-      },
-    },
-    submit: "Enviar mensagem",
-    submitting: "Enviando...",
-    success: {
-      title: "Mensagem recebida.",
-      body: "Este formulário ainda é uma demonstração visual — o envio não está conectado a um canal real. Em breve nossa equipe poderá recebê-la por aqui.",
-      reset: "Enviar nova mensagem",
-    },
-    errors: {
-      name: "Informe seu nome completo.",
-      email: "Informe um e-mail válido.",
-      phone: "Informe um telefone válido, com DDD.",
-      message: "Escreva uma breve mensagem (mínimo 10 caracteres).",
-    },
-  },
 };
 
 export const footer = {
